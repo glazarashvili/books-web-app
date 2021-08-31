@@ -10,7 +10,20 @@ const images = [
 const Carousel = () => {
   const [posterIndex, setPosterIndex] = React.useState(0)
 
+  // React.useEffect(() => {
+  //   const identifier = setTimeout(() => {
+  //     setPosterIndex(prevState => prevState + 1)
+  //     if (posterIndex > images.length - 2) {
+  //       setPosterIndex(0)
+  //     }
+  //     if (posterIndex < 1) {
+  //       setPosterIndex(images.length - 1)
+  //     }
+  //   }, 5000)
+  // }, [])
+
   const nextImageChangeHandler = () => {
+    // clearTimeout(identifier)
     setPosterIndex(prevState => prevState + 1)
 
     if (posterIndex > images.length - 2) {
@@ -18,6 +31,7 @@ const Carousel = () => {
     }
   }
   const prevImageChangeHandler = () => {
+    // clearTimeout(identifier)
     setPosterIndex(prevState => prevState - 1)
 
     if (posterIndex < 1) {
