@@ -1,0 +1,58 @@
+.carousel {
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.circle {
+  display: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: #000;
+  opacity: 0.6;
+  position: absolute;
+  cursor: pointer;
+}
+
+.right {
+  top: calc(50% - 25px);
+  right: 20px;
+}
+
+.left {
+  top: calc(50% - 25px);
+  left: 20px;
+}
+
+.circle:hover {
+  opacity: 1;
+}
+
+.carousel:hover .circle {
+  display: block;
+}
+
+.arrow-right,
+.arrow-left {
+  position: absolute;
+  top: calc(50% - 7.5px);
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.arrow-right {
+  transform: rotate(135deg);
+  right: calc(50% - 5px);
+}
+
+.arrow-left {
+  transform: rotate(-45deg);
+  left: calc(50% - 5px);
+}

@@ -1,0 +1,42 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  background: rgb(248, 245, 245);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.nav-items li {
+  margin: 0 20px 0 0;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-items li:hover,
+.nav-items li:active {
+  color: #2e99fb;
+  opacity: 1;
+}
+
+.login-menu {
+  display: flex;
+  align-items: center;
+}
+
+.login-menu p {
+  margin: 0 10px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}

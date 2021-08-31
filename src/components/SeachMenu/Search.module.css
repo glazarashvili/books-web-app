@@ -1,0 +1,17 @@
+.search-bar {
+  display: flex;
+}
+
+.input {
+  width: 500px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  margin-right: 10px;
+}
