@@ -2,10 +2,11 @@ import React from 'react'
 import Template from '../../UI/Template/Template'
 
 import CardItem from './CardItem'
+import Button from '../../UI/Button/Button'
 
 import classes from './Cards.module.css'
 
-const books = [
+const arr = [
   {
     title: '1984',
     author: 'Leo Tolstoy',
@@ -39,20 +40,23 @@ const books = [
 ]
 
 const Cards = () => {
+  const books = arr.map(book => {
+    return (
+      <CardItem
+        image={book.img}
+        title={book.title}
+        price={book.price}
+        author={book.author}
+      />
+    )
+  })
   return (
     <div className={classes['card-container']}>
-      <Template>
-        {books.map(book => {
-          return (
-            <CardItem
-              image={book.img}
-              title={book.title}
-              price={book.price}
-              author={book.author}
-            />
-          )
-        })}
+      <Template className={classes['header-menu']}>
+        <h1 className={classes.heading}>new</h1>
+        <Button className={classes.button}>see more</Button>
       </Template>
+      <Template>{books}</Template>
     </div>
   )
 }
