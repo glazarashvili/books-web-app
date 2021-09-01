@@ -22,11 +22,6 @@
   }
 }
 
-.card-container__heading {
-  display: flex;
-  justify-content: space-between;
-}
-
 .header-menu {
   margin-bottom: 30px;
 }
