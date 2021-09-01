@@ -15,8 +15,11 @@ const Landing = () => {
       <SearchMenu />
       <CategoriesList />
       <Carousel />
-      <Cards />
+      <Cards type='new' />
+      <Cards type='fiction' />
       <Banner image={images[0]} />
+      <Cards type='childrens' />
+      <Banner image={images[1]} />
     </div>
   )
 }

@@ -39,7 +39,7 @@ const arr = [
   },
 ]
 
-const Cards = () => {
+const Cards = ({ type }) => {
   const books = arr.map(book => {
     return (
       <CardItem
@@ -50,10 +50,11 @@ const Cards = () => {
       />
     )
   })
+
   return (
     <div className={classes['card-container']}>
       <Template className={classes['header-menu']}>
-        <h1 className={classes.heading}>new</h1>
+        <h1 className={classes.heading}>{type}</h1>
         <Button className={classes.button}>see more</Button>
       </Template>
       <Template>{books}</Template>
