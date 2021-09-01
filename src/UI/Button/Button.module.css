@@ -1,6 +1,4 @@
 .button {
-  background-color: #2e99fb;
-  color: white;
   padding: 10px 15px;
   text-align: center;
   text-decoration: none;
@@ -11,9 +9,4 @@
   cursor: pointer;
   text-transform: uppercase;
   transition: 0.3s ease-in-out;
-}
-
-.button:hover,
-.button:active {
-  background: #cd484d;
 }

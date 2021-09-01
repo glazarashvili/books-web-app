@@ -1,4 +1,3 @@
-import React from 'react'
 // import { Link } from 'react-router-dom'
 
 import Button from '../../UI/Button/Button'
@@ -18,7 +17,7 @@ const Header = () => {
         </ul>
         <div className={classes['login-menu']}>
           <p>Log In</p>
-          <Button>Sign Up</Button>
+          <Button className={classes.button}>Sign Up</Button>
         </div>
       </Template>
     </header>

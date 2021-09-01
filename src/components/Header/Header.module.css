@@ -29,6 +29,16 @@
   opacity: 1;
 }
 
+.button {
+  background-color: #2e99fb;
+  color: white;
+}
+
+.button:hover,
+.button:active {
+  background: #cd484d;
+}
+
 .login-menu {
   display: flex;
   align-items: center;

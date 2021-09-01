@@ -7,9 +7,16 @@
 }
 
 .button {
+  background-color: #2e99fb;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button:hover,
+.button:active {
+  background: #cd484d;
 }
 
 .search-icon {
