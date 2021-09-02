@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Button from '../../UI/Button/Button'
 import Template from '../../UI/Template/Template'
@@ -10,14 +10,22 @@ const Header = () => {
     <header className={classes.header}>
       <Template>
         <ul className={classes['nav-items']}>
-          <li>Events</li>
+          <Link className={classes.link} to='/'>
+            <li>Bookshop</li>
+          </Link>
           <li>Blog</li>
           <li>Gift Card</li>
           <li>Orphan's Book club</li>
         </ul>
         <div className={classes['login-menu']}>
-          <p>Log In</p>
-          <Button className={classes.button}>Sign Up</Button>
+          <Link to='/login' className={classes.link}>
+            Log In
+          </Link>
+          <Button className={classes.button}>
+            <Link className={classes['btn-link']} to='/register'>
+              Sign Up
+            </Link>
+          </Button>
         </div>
       </Template>
     </header>

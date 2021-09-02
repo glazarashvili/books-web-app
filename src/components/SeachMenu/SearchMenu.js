@@ -10,9 +10,9 @@ const SearchMenu = () => {
     <div className={classes['search-menu']}>
       <Template className={classes.template}>
         <img
-          style={{ height: '40px' }}
-          src='https://www.bookshop.ge/images/logo.svg'
           alt='search-menu-pic'
+          className={classes['search-menu__image']}
+          src='https://www.bookshop.ge/images/logo.svg'
         />
         <Search />
         <div className={classes['search-menu__icons']}>

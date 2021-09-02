@@ -21,6 +21,7 @@
   font-size: 12px;
   cursor: pointer;
   font-weight: bold;
+  color: #000;
 }
 
 .nav-items li:hover,
@@ -32,6 +33,7 @@
 .button {
   background-color: #2e99fb;
   color: #fff;
+  margin-left: 10px;
 }
 
 .button:hover,
@@ -44,10 +46,17 @@
   align-items: center;
 }
 
-.login-menu p {
-  margin: 0 10px;
-  opacity: 0.5;
+.link {
   text-transform: uppercase;
   font-size: 12px;
   cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
