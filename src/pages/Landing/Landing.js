@@ -20,6 +20,7 @@ const Landing = () => {
       <Banner image={images[0]} />
       <Cards type='childrens' />
       <Banner image={images[1]} />
+      <Cards type='Bestsellers' />
     </div>
   )
 }

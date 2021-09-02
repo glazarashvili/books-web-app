@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   padding: 20px 0;
-  background: rgb(248, 245, 245);
+  background: #f8f8f8;
   display: flex;
   justify-content: center;
   z-index: 10;
@@ -31,7 +31,7 @@
 
 .button {
   background-color: #2e99fb;
-  color: white;
+  color: #fff;
 }
 
 .button:hover,
