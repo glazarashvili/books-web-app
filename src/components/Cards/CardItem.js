@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Button from '../../UI/Button/Button'
-
 import classes from './CardItem.module.css'
+
+import Button from '../../UI/Button/Button'
 
 const CardItem = ({ title, author, image, price }) => {
   return (

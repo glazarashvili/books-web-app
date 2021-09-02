@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Template from '../../UI/Template/Template'
-
 import classes from './Banner.module.css'
+
+import Template from '../../UI/Template/Template'
 
 const Banner = ({ image }) => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import classes from './Landing.module.css'
 import images from './index'
+import classes from './Landing.module.css'
 
 import Cards from '../../components/Cards/Cards'
 import Carousel from '../../UI/Carousel/Carousel'

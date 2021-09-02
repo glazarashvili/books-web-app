@@ -5,10 +5,10 @@ import classes from './Button.module.css'
 const Button = ({ type, children, className, onClick, disabled }) => {
   return (
     <button
-      className={`${classes.button} ${className}`}
-      type={'button' || type}
+      onClick={onClick}
       disabled={disabled}
-      onClick={onClick}>
+      type={'button' || type}
+      className={`${classes.button} ${className}`}>
       {children}
     </button>
   )

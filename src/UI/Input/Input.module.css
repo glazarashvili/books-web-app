@@ -1,9 +1,9 @@
 .input {
   padding: 10px;
   outline: none;
-  border: 0.3px solid rgb(230, 217, 217);
   border-radius: 3px;
   text-transform: capitalize;
+  border: 0.3px solid rgb(230, 217, 217);
 }
 
 .input::placeholder {
