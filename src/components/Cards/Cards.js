@@ -43,6 +43,7 @@ const Cards = ({ type }) => {
   const books = arr.map(book => {
     return (
       <CardItem
+        key={book.title}
         image={book.img}
         title={book.title}
         price={book.price}

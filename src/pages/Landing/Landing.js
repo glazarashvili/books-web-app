@@ -1,6 +1,6 @@
 import React from 'react'
 
-import images from './index'
+import images from './images'
 import classes from './Landing.module.css'
 
 import Cards from '../../components/Cards/Cards'
@@ -9,7 +9,7 @@ import Banner from '../../components/Banner/Banner'
 import SearchMenu from '../../components/SeachMenu/SearchMenu'
 import CategoriesList from '../../components/Categories/CategoriesList'
 
-const Landing = () => {
+export const Landing = () => {
   return (
     <div className={classes['landing-page']}>
       <SearchMenu />
@@ -24,5 +24,3 @@ const Landing = () => {
     </div>
   )
 }
-
-export default Landing

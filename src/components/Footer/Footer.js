@@ -6,9 +6,9 @@ import Template from '../../UI/Template/Template'
 const Footer = () => {
   const footerList = items.map(item => {
     return (
-      <li>
-        <img src={item.image} />
-        <a target='_blank' href={item.link}>
+      <li key={item.title}>
+        <img src={item.image} alt={`${item.title} icon`} />
+        <a target='_blank' rel='noreferrer' href={item.link}>
           {item.title}
         </a>
       </li>
@@ -20,31 +20,47 @@ const Footer = () => {
       <Template>
         <ul className={classes['footer-items']}>
           <li>
-            <a>Bookshop</a>
+            <a href='/' rel='noreferrer'>
+              Bookshop
+            </a>
           </li>
           <li>
-            <a>Contact us</a>
+            <a href='/' rel='noreferrer'>
+              Contact us
+            </a>
           </li>
           <li>
-            <a>Useful sites</a>
+            <a href='/' rel='noreferrer'>
+              Useful sites
+            </a>
           </li>
           <li>
-            <a>Help</a>
+            <a href='/' rel='noreferrer'>
+              Help
+            </a>
           </li>
         </ul>
         <ul className={classes['footer-items']}>{footerList}</ul>
         <ul className={classes['footer-items']}>
           <li>
-            <a>Privacy Policy</a>
+            <a href='/' rel='noreferrer'>
+              Privacy Policy
+            </a>
           </li>
           <li>
-            <a>Terms and Conditions</a>
+            <a href='/' rel='noreferrer'>
+              Terms and Conditions
+            </a>
           </li>
           <li>
-            <a>Delivery Options</a>
+            <a href='/' rel='noreferrer'>
+              Delivery Options
+            </a>
           </li>
           <li>
-            <a>Gift Cards</a>
+            <a href='/' rel='noreferrer'>
+              Gift Cards
+            </a>
           </li>
         </ul>
       </Template>
