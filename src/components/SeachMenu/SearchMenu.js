@@ -1,9 +1,9 @@
 import React from 'react'
 
+import classes from './SearchMenu.module.css'
+
 import Search from './Search'
 import Template from '../../UI/Template/Template'
-
-import classes from './SearchMenu.module.css'
 
 const SearchMenu = () => {
   return (

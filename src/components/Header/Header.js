@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
+import classes from './Header.module.css'
+
 import Button from '../../UI/Button/Button'
 import Template from '../../UI/Template/Template'
-
-import classes from './Header.module.css'
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
           <li>Orphan's Book club</li>
         </ul>
         <div className={classes['login-menu']}>
-          <Link to='/login' className={classes.link}>
+          <Link to='/login' className={classes['login-link']}>
             Log In
           </Link>
           <Button className={classes.button}>

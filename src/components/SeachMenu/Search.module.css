@@ -7,11 +7,11 @@
 }
 
 .button {
-  background-color: #2e99fb;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #2e99fb;
 }
 
 .button:hover,

@@ -1,26 +1,22 @@
+import React from 'react'
+
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
-import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
-import { appRoutes } from './const/app-routes'
 import * as views from './pages'
+import { appRoutes } from './const/app-routes'
+import { Route, Redirect } from 'react-router-dom'
 
 const App = () => {
   return (
-    <Router>
+    <React.Fragment>
       <Header />
       <Route path='/' exact>
         <Redirect to='landing' />
       </Route>
-      {/* <Route path='/landing'>
-        <Landing />
+      <Route path='*'>
+        <Redirect to='/landing' />
       </Route>
-      <Route path='/login'>
-        <Login />
-      </Route>
-      <Route path='/register'>
-        <Register />
-      </Route> */}
       {appRoutes.map(route => {
         const Component = views[route.component]
         return (
@@ -33,7 +29,7 @@ const App = () => {
         )
       })}
       <Footer />
-    </Router>
+    </React.Fragment>
   )
 }
 
