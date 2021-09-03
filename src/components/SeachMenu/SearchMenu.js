@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import classes from './SearchMenu.module.css'
 
 import Search from './Search'
@@ -9,11 +11,13 @@ const SearchMenu = () => {
   return (
     <div className={classes['search-menu']}>
       <Template className={classes.template}>
-        <img
-          alt='search-menu-pic'
-          className={classes['search-menu__image']}
-          src='https://www.bookshop.ge/images/logo.svg'
-        />
+        <Link to='/'>
+          <img
+            alt='search-menu-pic'
+            className={classes['search-menu__image']}
+            src='https://www.bookshop.ge/images/logo.svg'
+          />
+        </Link>
         <Search />
         <div className={classes['search-menu__icons']}>
           <img

@@ -18,7 +18,7 @@ const Header = () => {
           <li>Orphan's Book club</li>
         </ul>
         <div className={classes['login-menu']}>
-          <Link to='/login' className={classes['login-link']}>
+          <Link to='/login' className={classes.link}>
             Log In
           </Link>
           <Button className={classes.button}>

@@ -126,3 +126,7 @@ table {
 body {
   font-family: 'Lato', sans-serif;
 }
+
+html {
+  padding-top: 74px;
+}
