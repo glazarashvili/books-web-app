@@ -11,12 +11,6 @@ const App = () => {
   return (
     <React.Fragment>
       <Navigation />
-      <Route path='/' exact>
-        <Redirect to='landing' />
-      </Route>
-      <Route path='*'>
-        <Redirect to='/landing' />
-      </Route>
       {appRoutes.map(route => {
         const Component = views[route.component]
         return (
@@ -28,6 +22,12 @@ const App = () => {
           />
         )
       })}
+      <Route path='/' exact>
+        <Redirect to='landing' />
+      </Route>
+      <Route path='*'>
+        <Redirect to='/landing' />
+      </Route>
       <Footer />
     </React.Fragment>
   )

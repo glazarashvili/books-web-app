@@ -1,23 +1,34 @@
-import React from 'react'
+import { NavLink } from 'react-router-dom'
+
 import Template from '../../UI/Template/Template'
 
 import classes from './CategoriesList.module.css'
 
+const categories = [
+  'new',
+  'bestsellers',
+  'fiction',
+  'non-fiction',
+  'childrens',
+  'other languages',
+]
+
 const CategoriesList = () => {
+  const categoriesList = categories.map(category => {
+    return (
+      <NavLink
+        className={classes.link}
+        activeClassName={classes['active-link']}
+        to={`/${category}`}>
+        <li>{category}</li>
+      </NavLink>
+    )
+  })
+
   return (
     <div className={classes['category-menu']}>
       <Template>
-        <ul className={classes['category-menu__items']}>
-          <li>New</li>
-          <li>Bestseller</li>
-          <li>Ficton</li>
-          <li>Non-Fiction</li>
-          <li>Children's</li>
-          <li>Elt</li>
-          <li>Gifts</li>
-          <li>Other Publishers</li>
-          <li>Other Languages</li>
-        </ul>
+        <ul className={classes['category-menu__items']}>{categoriesList}</ul>
       </Template>
     </div>
   )
