@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import Navigation from './components/Navigation/Navigation'
 
 import * as views from './pages'
 import { appRoutes } from './const/app-routes'
@@ -10,7 +10,7 @@ import { Route, Redirect } from 'react-router-dom'
 const App = () => {
   return (
     <React.Fragment>
-      <Header />
+      <Navigation />
       <Route path='/' exact>
         <Redirect to='landing' />
       </Route>
