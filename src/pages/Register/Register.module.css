@@ -1,3 +1,7 @@
 .register {
-  margin-top: 74px;
+  font-size: 40px;
+  padding: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  height: 30vh;
 }
