@@ -11,7 +11,10 @@ const Header = () => {
       <Template>
         <ul className={classes['nav-items']}>
           <Link className={classes.link} to='/'>
-            <li>Bookshop</li>
+            <img
+              alt='home-icon'
+              src='https://www.bookshop.ge/images/icons/home.png'
+            />
           </Link>
           <li>Blog</li>
           <li>Gift Card</li>
