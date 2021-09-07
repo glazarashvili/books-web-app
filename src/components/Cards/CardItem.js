@@ -19,7 +19,7 @@ const CardItem = ({ title, author, image, price }) => {
         <p className={classes['card-item__content-author']}>{author}</p>
       </div>
       <div className={classes['card-item__overlay']}>
-        <p className={classes['card-item__overlay-price']}>Price: {price}</p>
+        <p className={classes['card-item__overlay-price']}>price: {price}</p>
         <Button className={classes['card-button']}>Add To Basket</Button>
       </div>
     </div>
