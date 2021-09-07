@@ -14,6 +14,21 @@ export const appRoutes = [
     component: 'Register',
     exact: false,
   },
+  {
+    path: 'fiction',
+    component: 'FictionBooks',
+    exact: false,
+  },
+  {
+    path: 'new',
+    component: 'NewBooks',
+    exact: false,
+  },
+  {
+    path: 'culture',
+    component: 'CultureBooks',
+    exact: false,
+  },
   // {
   //   path: 'movies/:movieId',
   //   component: 'MovieDetail',

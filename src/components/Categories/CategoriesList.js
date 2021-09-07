@@ -4,14 +4,7 @@ import Template from '../../UI/Template/Template'
 
 import classes from './CategoriesList.module.css'
 
-const categories = [
-  'new',
-  'bestsellers',
-  'fiction',
-  'non-fiction',
-  'childrens',
-  'other languages',
-]
+const categories = ['new', 'fiction', 'culture', 'childrens', 'other languages']
 
 const CategoriesList = () => {
   const categoriesList = categories.map((category, index) => {

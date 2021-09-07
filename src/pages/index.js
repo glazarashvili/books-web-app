@@ -1,3 +1,6 @@
 export * from './Landing/Landing'
 export * from './Register/Register'
 export * from './Login/Login'
+export * from './CultureBooks'
+export * from './FictionBooks'
+export * from './NewBooks'
