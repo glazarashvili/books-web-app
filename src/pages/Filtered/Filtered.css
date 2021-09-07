@@ -1,0 +1,4 @@
+.filtered-container {
+  padding: 100px 0px;
+  min-height: calc(100vh - 643px);
+}

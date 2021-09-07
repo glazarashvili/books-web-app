@@ -70,7 +70,7 @@ const Cards = ({ type }) => {
       })
   }, [])
 
-  const items = books.slice(4, 9).map(book => {
+  const items = books.slice(5, 9).map(book => {
     return (
       <CardItem
         key={book.title}
