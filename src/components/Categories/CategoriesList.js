@@ -14,9 +14,10 @@ const categories = [
 ]
 
 const CategoriesList = () => {
-  const categoriesList = categories.map(category => {
+  const categoriesList = categories.map((category, index) => {
     return (
       <NavLink
+        key={index}
         className={classes.link}
         activeClassName={classes['active-link']}
         to={`/${category}`}>

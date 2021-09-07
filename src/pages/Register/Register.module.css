@@ -3,5 +3,5 @@
   padding: 100px;
   text-align: center;
   text-transform: uppercase;
-  height: 30vh;
+  min-height: calc(100vh - 643px);
 }

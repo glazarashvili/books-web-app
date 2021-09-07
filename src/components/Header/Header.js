@@ -21,11 +21,9 @@ const Header = () => {
           <Link to='/login' className={classes.link}>
             Log In
           </Link>
-          <Button className={classes.button}>
-            <Link className={classes['btn-link']} to='/register'>
-              Sign Up
-            </Link>
-          </Button>
+          <Link className={classes['btn-link']} to='/register'>
+            <Button className={classes.button}>Sign Up</Button>
+          </Link>
         </div>
       </Template>
     </header>

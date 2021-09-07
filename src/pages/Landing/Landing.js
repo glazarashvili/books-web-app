@@ -12,7 +12,7 @@ export const Landing = () => {
     <div className={classes['landing-page']}>
       <Carousel />
       <Cards type='new' />
-      <Banner image={images[0]} />
+      <Banner image={images[2]} />
       <Cards type='fiction' />
       <Banner image={images[1]} />
       <Cards type='Bestsellers' />

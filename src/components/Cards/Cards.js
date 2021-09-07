@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from 'axios'
+
 import Template from '../../UI/Template/Template'
 
 import CardItem from './CardItem'
@@ -40,6 +42,8 @@ const arr = [
 ]
 
 const Cards = ({ type }) => {
+  React.useEffect(() => {}, [])
+
   const books = arr.map(book => {
     return (
       <CardItem
