@@ -6,24 +6,22 @@ import './Filtered.css'
 import CardItem from '../../components/Cards/CardItem'
 
 export const BusinessBooks = () => {
-  const store = useSelector(state => state.fictionBooks)
   const dispatch = useDispatch()
+  const store = useSelector(state => state.books)
+
+  const items = store.books.map(book => (
+    <CardItem
+      key={book.title}
+      price={book.price}
+      title={book.title}
+      author={book.author}
+      image={book.book_image}
+    />
+  ))
 
   React.useEffect(() => {
     dispatch(fetchBooks('business-books'))
   }, [dispatch])
 
-  return (
-    <div className='filtered-container'>
-      {store.fictionBooks.map(book => (
-        <CardItem
-          key={book.title}
-          image={book.book_image}
-          price={book.price}
-          title={book.title}
-          author={book.author}
-        />
-      ))}
-    </div>
-  )
+  return <div className='filtered-container'>{items}</div>
 }

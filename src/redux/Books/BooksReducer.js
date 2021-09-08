@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   loading: false,
-  fictionBooks: [],
+  books: [],
   error: '',
 }
 
@@ -21,7 +21,7 @@ const booksReducer = (state = initialState, action) => {
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
-        fictionBooks: action.payload,
+        books: action.payload,
         loading: false,
       }
 
