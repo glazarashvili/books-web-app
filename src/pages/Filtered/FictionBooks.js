@@ -1,20 +1,30 @@
 import React from 'react'
-
 import { useDispatch, useSelector } from 'react-redux'
-
-import { fetchFictionBooks } from '../../redux/FictionBooks/FictionBooksActions'
+import { fetchBooks } from '../../redux/Books/BooksActions'
 
 import './Filtered.css'
+import CardItem from '../../components/Cards/CardItem'
 
 export const FictionBooks = () => {
-  const books = useSelector(state => state.fictionBooks)
+  const store = useSelector(state => state.fictionBooks)
 
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    dispatch(fetchFictionBooks())
+    dispatch(fetchBooks('bussiness'))
   }, [dispatch])
 
-  console.log(books)
-  return <div className='filtered-container'>Fiction</div>
+  return (
+    <div className='filtered-container'>
+      {store.fictionBooks.map(book => (
+        <CardItem
+          key={book.title}
+          image={book.book_image}
+          price={book.price}
+          title={book.title}
+          author={book.author}
+        />
+      ))}
+    </div>
+  )
 }

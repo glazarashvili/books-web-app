@@ -1,8 +1,8 @@
 import {
-  FETCH_FICTION_BOOKS_REQUEST,
-  FETCH_FICTION_BOOKS_SUCCESS,
-  FETCH_FICTION_BOOKS_FAILURE,
-} from './FictionBooksActionTypes'
+  FETCH_BOOKS_REQUEST,
+  FETCH_BOOKS_SUCCESS,
+  FETCH_BOOKS_FAILURE,
+} from './BooksActionTypes'
 
 const initialState = {
   loading: false,
@@ -10,22 +10,22 @@ const initialState = {
   error: '',
 }
 
-const fictionBooksReducer = (state = initialState, action) => {
+const booksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_FICTION_BOOKS_REQUEST:
+    case FETCH_BOOKS_REQUEST:
       return {
         ...state,
         loading: true,
       }
 
-    case FETCH_FICTION_BOOKS_SUCCESS:
+    case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
         fictionBooks: action.payload,
         loading: false,
       }
 
-    case FETCH_FICTION_BOOKS_FAILURE:
+    case FETCH_BOOKS_FAILURE:
       return {
         ...state,
         error: action.payload,
@@ -37,4 +37,4 @@ const fictionBooksReducer = (state = initialState, action) => {
   }
 }
 
-export default fictionBooksReducer
+export default booksReducer
