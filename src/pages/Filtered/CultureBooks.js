@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import './Filtered.css'
 
-import Template from '../../UI/Template/Template'
 import CardItem from '../../components/Cards/CardItem'
 
 export const CultureBooks = () => {

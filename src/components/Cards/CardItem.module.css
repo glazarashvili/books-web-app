@@ -1,9 +1,9 @@
 .card-item {
   width: 220px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 5px;
   cursor: pointer;
   position: relative;
-  padding: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .card-item__image {

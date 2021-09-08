@@ -20,13 +20,28 @@ export const appRoutes = [
     exact: false,
   },
   {
-    path: 'new',
-    component: 'NewBooks',
+    path: 'bestsellers',
+    component: 'BestSellers',
     exact: false,
   },
   {
     path: 'culture',
     component: 'CultureBooks',
+    exact: false,
+  },
+  {
+    path: 'religion',
+    component: 'ReligionBooks',
+    exact: false,
+  },
+  {
+    path: 'education',
+    component: 'EducationBooks',
+    exact: false,
+  },
+  {
+    path: 'business',
+    component: 'BusinessBooks',
     exact: false,
   },
   // {

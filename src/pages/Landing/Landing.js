@@ -11,14 +11,9 @@ export const Landing = () => {
   return (
     <div className={classes['landing-page']}>
       <Carousel />
-      <Cards type='new' path='new' cardHeaderShown={true} sliceIndex='4' />
+      <Cards type='bestsellers' path='bestsellers' />
       <Banner image={images[2]} />
-      <Cards
-        type='fiction'
-        path='fiction'
-        cardHeaderShown={true}
-        sliceIndex='4'
-      />
+      <Cards type='fiction' path='fiction' />
     </div>
   )
 }

@@ -14,6 +14,7 @@
   .filtered-container {
     width: 75%;
     grid-template-columns: repeat(5, auto);
+    gap: auto;
   }
 }
 
@@ -21,6 +22,7 @@
   .filtered-container {
     width: 80%;
     grid-template-columns: repeat(4, auto);
+    gap: auto;
   }
 }
 
@@ -28,6 +30,7 @@
   .filtered-container {
     width: 85%;
     grid-template-columns: repeat(4, auto);
+    gap: auto;
   }
 }
 
