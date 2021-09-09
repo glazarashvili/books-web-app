@@ -22,21 +22,26 @@ import Template from '../../UI/Template/Template'
 //   'travel',
 // ]
 
-const Cards = ({ type, path }) => {
+const Cards = ({ type, path, category }) => {
   const [books, setBooks] = React.useState([])
+  const [loading, setLoading] = React.useState(false)
 
   const key = 'ti9WowZzdtbgGUQ2pFo6Nd0r0Cj4i9P2'
   React.useEffect(() => {
+    setLoading(true)
     axios
       .get(
-        'https://api.nytimes.com/svc/books/v3/lists/current/culture.json?api-key=' +
-          key
+        `https://api.nytimes.com/svc/books/v3/lists/current/${category}.json?api-key=${key}`
       )
       .then(response => {
         console.log(response.data.results.books)
         setBooks(response.data.results.books)
+        setLoading(false)
       })
-  }, [])
+      .catch(error => {
+        setLoading(false)
+      })
+  }, [category])
 
   const items = books
     .slice(0, 4)
@@ -50,15 +55,28 @@ const Cards = ({ type, path }) => {
       />
     ))
 
+  const Loading = (
+    <div>
+      <img src='https://saba.com.ge/content/img/Loader.gif' alt='loading-pic' />
+      <p>Loading...</p>
+    </div>
+  )
+
   return (
     <div className={classes['card-container']}>
-      <Template className={classes['header-menu']}>
-        <h1 className={classes.heading}>{type}</h1>
-        <Link to={`/${path}`}>
-          <Button className={classes.button}>see more</Button>
-        </Link>
-      </Template>
-      <Template>{items}</Template>
+      {loading ? (
+        Loading
+      ) : (
+        <React.Fragment>
+          <Template className={classes['header-menu']}>
+            <h1 className={classes.heading}>{type}</h1>
+            <Link to={`/${path}`}>
+              <Button className={classes.button}>see more</Button>
+            </Link>
+          </Template>
+          <Template>{items}</Template>
+        </React.Fragment>
+      )}
     </div>
   )
 }

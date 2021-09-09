@@ -5,12 +5,12 @@ import Template from '../../UI/Template/Template'
 import classes from './CategoriesList.module.css'
 
 const categories = [
-  'bestsellers',
   'fiction',
   'culture',
   'business',
   'religion',
   'education',
+  'animals',
 ]
 
 const CategoriesList = () => {

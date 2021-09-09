@@ -20,8 +20,8 @@ export const appRoutes = [
     exact: false,
   },
   {
-    path: 'bestsellers',
-    component: 'BestSellers',
+    path: 'animals',
+    component: 'AnimalsBooks',
     exact: false,
   },
   {

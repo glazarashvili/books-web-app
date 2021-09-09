@@ -11,9 +11,9 @@ export const Landing = () => {
   return (
     <div className={classes['landing-page']}>
       <Carousel />
-      <Cards type='bestsellers' path='bestsellers' />
+      <Cards type='fiction' path='fiction' category='hardcover-fiction' />
       <Banner image={images[2]} />
-      <Cards type='fiction' path='fiction' />
+      <Cards type='business' path='business' category='business-books' />
     </div>
   )
 }
