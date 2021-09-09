@@ -13,14 +13,12 @@
 @media (max-width: 1700px) and (min-width: 1530px) {
   .filtered-container {
     width: 75%;
-    grid-template-columns: repeat(5, auto);
   }
 }
 
 @media (max-width: 1530px) and (min-width: 1280px) {
   .filtered-container {
     width: 80%;
-    grid-template-columns: repeat(4, auto);
   }
 }
 

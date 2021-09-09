@@ -7,11 +7,13 @@ import classes from './Cards.module.css'
 import CardItem from './CardItem'
 import Button from '../../UI/Button/Button'
 import Loading from '../../UI/Loading/Loading'
+import HttpError from '../../UI/Error/HttpError'
 import Template from '../../UI/Template/Template'
 
 const Cards = ({ type, path, category }) => {
   const [books, setBooks] = React.useState([])
   const [loading, setLoading] = React.useState(false)
+  const [httpError, setHttpError] = React.useState(false)
 
   const key = 'ti9WowZzdtbgGUQ2pFo6Nd0r0Cj4i9P2'
   React.useEffect(() => {
@@ -27,36 +29,37 @@ const Cards = ({ type, path, category }) => {
       })
       .catch(error => {
         setLoading(false)
+        setHttpError(true)
       })
   }, [category])
 
-  const items = books
-    .slice(0, 4)
-    .map(book => (
-      <CardItem
-        key={book.title}
-        price={book.price}
-        title={book.title}
-        author={book.author}
-        image={book.book_image}
-      />
-    ))
+  const cards = (
+    <React.Fragment>
+      <Template className={classes['header-menu']}>
+        <h1 className={classes.heading}>{type}</h1>
+        <Link to={`/${path}`}>
+          <Button className={classes.button}>see more</Button>
+        </Link>
+      </Template>
+      <Template>
+        {books.slice(0, 4).map(book => (
+          <CardItem
+            key={book.title}
+            price={book.price}
+            title={book.title}
+            author={book.author}
+            image={book.book_image}
+          />
+        ))}
+      </Template>
+    </React.Fragment>
+  )
 
   return (
     <div className={classes['card-container']}>
-      {loading ? (
-        <Loading />
-      ) : (
-        <React.Fragment>
-          <Template className={classes['header-menu']}>
-            <h1 className={classes.heading}>{type}</h1>
-            <Link to={`/${path}`}>
-              <Button className={classes.button}>see more</Button>
-            </Link>
-          </Template>
-          <Template>{items}</Template>
-        </React.Fragment>
-      )}
+      {loading && !httpError && <Loading />}
+      {!loading && !httpError && cards}
+      {!loading && httpError && <HttpError>No information found</HttpError>}
     </div>
   )
 }
