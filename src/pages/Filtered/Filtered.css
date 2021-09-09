@@ -1,12 +1,12 @@
 .filtered-container {
   padding: 50px 0;
-  min-height: calc(100vh - 543px);
   margin: auto;
-  justify-content: center;
   display: grid;
   margin: 0 auto;
   width: 70%;
   gap: 30px 0;
+  justify-content: center;
+  min-height: calc(100vh - 543px);
   grid-template-columns: repeat(5, auto);
 }
 
@@ -14,7 +14,6 @@
   .filtered-container {
     width: 75%;
     grid-template-columns: repeat(5, auto);
-    gap: auto;
   }
 }
 
@@ -22,7 +21,6 @@
   .filtered-container {
     width: 80%;
     grid-template-columns: repeat(4, auto);
-    gap: auto;
   }
 }
 
@@ -30,7 +28,6 @@
   .filtered-container {
     width: 85%;
     grid-template-columns: repeat(4, auto);
-    gap: auto;
   }
 }
 

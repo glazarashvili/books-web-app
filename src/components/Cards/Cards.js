@@ -1,5 +1,4 @@
 import React from 'react'
-
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -7,20 +6,8 @@ import classes from './Cards.module.css'
 
 import CardItem from './CardItem'
 import Button from '../../UI/Button/Button'
+import Loading from '../../UI/Loading/Loading'
 import Template from '../../UI/Template/Template'
-
-// const categories = [
-//   'sports',
-//   'humor',
-//   'animals',
-//   'crime-and-punishment',
-//   'education',
-//   'hardcover-fiction',
-//   'business-books',
-//   'expeditions-disasters-and-adventures',
-//   'religion-spirituality-and-faith',
-//   'travel',
-// ]
 
 const Cards = ({ type, path, category }) => {
   const [books, setBooks] = React.useState([])
@@ -55,17 +42,10 @@ const Cards = ({ type, path, category }) => {
       />
     ))
 
-  const Loading = (
-    <div>
-      <img src='https://saba.com.ge/content/img/Loader.gif' alt='loading-pic' />
-      <p>Loading...</p>
-    </div>
-  )
-
   return (
     <div className={classes['card-container']}>
       {loading ? (
-        Loading
+        <Loading />
       ) : (
         <React.Fragment>
           <Template className={classes['header-menu']}>
