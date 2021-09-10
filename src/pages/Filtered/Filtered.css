@@ -1,13 +1,12 @@
 .filtered-container {
-  padding: 50px 0;
-  margin: auto;
-  display: grid;
-  margin: 0 auto;
   width: 70%;
+  margin: auto;
+  padding: 50px 0;
+  min-height: calc(100vh - 543px);
+  display: grid;
+  grid-template-columns: repeat(5, auto);
   gap: 30px 0;
   justify-content: center;
-  min-height: calc(100vh - 543px);
-  grid-template-columns: repeat(5, auto);
 }
 
 @media (max-width: 1700px) and (min-width: 1530px) {

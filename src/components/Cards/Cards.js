@@ -59,7 +59,7 @@ const Cards = ({ type, path, category }) => {
     <div className={classes['card-container']}>
       {loading && !httpError && <Loading />}
       {!loading && !httpError && cards}
-      {!loading && httpError && <HttpError>No information found</HttpError>}
+      {!loading && httpError && <HttpError>No information found...</HttpError>}
     </div>
   )
 }
