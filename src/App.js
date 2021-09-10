@@ -25,6 +25,9 @@ const App = () => {
       <Route path='/' exact>
         <Redirect to='landing' />
       </Route>
+      <Route path='*'>
+        <Redirect to='landing' />
+      </Route>
       <Footer />
     </React.Fragment>
   )
