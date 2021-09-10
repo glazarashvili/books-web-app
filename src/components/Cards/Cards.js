@@ -42,8 +42,9 @@ const Cards = ({ type, path, category }) => {
         </Link>
       </Template>
       <Template>
-        {books.slice(0, 4).map(book => (
+        {books.slice(0, 4).map((book, index) => (
           <CardItem
+            bookId={index}
             key={book.title}
             price={book.price}
             title={book.title}

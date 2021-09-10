@@ -44,9 +44,9 @@ export const appRoutes = [
     component: 'BusinessBooks',
     exact: false,
   },
-  // {
-  //   path: 'movies/:movieId',
-  //   component: 'MovieDetail',
-  //   exact: false,
-  // },
+  {
+    path: 'books/:bookId',
+    component: 'BookDetails',
+    exact: false,
+  },
 ]
