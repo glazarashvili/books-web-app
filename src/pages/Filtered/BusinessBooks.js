@@ -1,4 +1,5 @@
 import React from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBooks } from '../../redux/Books/BooksActions'
 
@@ -9,15 +10,22 @@ export const BusinessBooks = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.books)
 
-  const items = store.books.map((book, index) => (
-    <CardItem
-      bookId={index}
-      key={book.title}
-      price={book.price}
-      title={book.title}
-      author={book.author}
-      image={book.book_image}
-    />
+  const location = useLocation().pathname.slice(7)
+
+  console.log(location)
+
+  const items = store.books.map((elem, index) => (
+    <Link
+      key={index}
+      to={`/books/${location}/${index}`}
+      className='card-item-link'>
+      <CardItem
+        price={elem.price}
+        title={elem.title}
+        author={elem.author}
+        image={elem.book_image}
+      />
+    </Link>
   ))
 
   React.useEffect(() => {

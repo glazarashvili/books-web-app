@@ -12,17 +12,16 @@ export const AnimalsBooks = () => {
 
   const location = useLocation().pathname.slice(7)
 
-  console.log(location)
-
-  const items = store.books.map((book, index) => (
-    <Link to={`/books/${location}/1`}>
+  const items = store.books.map((elem, index) => (
+    <Link
+      key={index}
+      to={`/books/${location}/${index}`}
+      className='card-item-link'>
       <CardItem
-        bookId={index}
-        key={book.title}
-        price={book.price}
-        title={book.title}
-        author={book.author}
-        image={book.book_image}
+        price={elem.price}
+        title={elem.title}
+        author={elem.author}
+        image={elem.book_image}
       />
     </Link>
   ))
@@ -31,5 +30,9 @@ export const AnimalsBooks = () => {
     dispatch(fetchBooks('animals'))
   }, [dispatch])
 
-  return <div className='filtered-container'>{items}</div>
+  return (
+    <React.Fragment>
+      <div className='filtered-container'>{items}</div>
+    </React.Fragment>
+  )
 }

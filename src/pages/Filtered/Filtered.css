@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.card-item-link {
+  text-decoration: none;
+}
+
 @media (max-width: 1700px) and (min-width: 1530px) {
   .filtered-container {
     width: 75%;

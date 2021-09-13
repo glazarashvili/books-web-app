@@ -9,7 +9,9 @@ export const BookDetails = () => {
   const [bookDetail, setBookDetail] = React.useState([])
 
   const bookId = params.bookId
-  const adrress = location.slice(7, location.length - 1)
+
+  const adrress = location.slice(7, location.length - 2)
+  console.log(adrress)
 
   const key = 'ti9WowZzdtbgGUQ2pFo6Nd0r0Cj4i9P2'
   React.useEffect(() => {
@@ -21,10 +23,11 @@ export const BookDetails = () => {
         console.log(response.data.results.books[bookId])
         setBookDetail(response.data.results.books[bookId])
       })
-  }, [bookId])
+  }, [bookId, adrress])
 
   return (
     <div>
+      dddddddddddddddddddd
       <p>{bookDetail.author}</p>
       <p>{bookDetail.title}</p>
       <img src={bookDetail.book_image} alt='book-detail' />

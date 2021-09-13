@@ -15,7 +15,7 @@ export const appRoutes = [
     exact: false,
   },
   {
-    path: 'books/fiction',
+    path: 'books/hardcover-fiction',
     component: 'FictionBooks',
     exact: true,
   },
@@ -30,7 +30,7 @@ export const appRoutes = [
     exact: true,
   },
   {
-    path: 'books/religion',
+    path: 'books/religion-spirituality-and-faith',
     component: 'ReligionBooks',
     exact: true,
   },
@@ -40,12 +40,37 @@ export const appRoutes = [
     exact: true,
   },
   {
-    path: 'books/business',
+    path: 'books/business-books',
     component: 'BusinessBooks',
     exact: true,
   },
   {
+    path: `books/culture/:bookId`,
+    component: 'BookDetails',
+    exact: false,
+  },
+  {
     path: `books/animals/:bookId`,
+    component: 'BookDetails',
+    exact: false,
+  },
+  {
+    path: `books/hardcover-fiction/:bookId`,
+    component: 'BookDetails',
+    exact: false,
+  },
+  {
+    path: `books/business-books/:bookId`,
+    component: 'BookDetails',
+    exact: false,
+  },
+  {
+    path: `books/education/:bookId`,
+    component: 'BookDetails',
+    exact: false,
+  },
+  {
+    path: `books/religion-spirituality-and-faith/:bookId`,
     component: 'BookDetails',
     exact: false,
   },

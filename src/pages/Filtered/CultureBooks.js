@@ -1,38 +1,34 @@
 import React from 'react'
-import axios from 'axios'
+import { useLocation, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchBooks } from '../../redux/Books/BooksActions'
 
 import './Filtered.css'
-
 import CardItem from '../../components/Cards/CardItem'
 
 export const CultureBooks = () => {
-  const [books, setBooks] = React.useState([])
+  const dispatch = useDispatch()
+  const store = useSelector(state => state.books)
 
-  const key = 'ti9WowZzdtbgGUQ2pFo6Nd0r0Cj4i9P2'
+  const location = useLocation().pathname.slice(7)
+
+  const items = store.books.map((elem, index) => (
+    <Link
+      key={index}
+      to={`/books/${location}/${index}`}
+      className='card-item-link'>
+      <CardItem
+        price={elem.price}
+        title={elem.title}
+        author={elem.author}
+        image={elem.book_image}
+      />
+    </Link>
+  ))
+
   React.useEffect(() => {
-    axios
-      .get(
-        'https://api.nytimes.com/svc/books/v3/lists/current/culture.json?api-key=' +
-          key
-      )
-      .then(response => {
-        console.log(response.data.results.books)
-        setBooks(response.data.results.books)
-      })
-  }, [])
+    dispatch(fetchBooks('culture'))
+  }, [dispatch])
 
-  return (
-    <div className='filtered-container'>
-      {books.map((book, index) => (
-        <CardItem
-          bookId={index}
-          key={book.title}
-          price={book.price}
-          title={book.title}
-          author={book.author}
-          image={book.book_image}
-        />
-      ))}
-    </div>
-  )
+  return <div className='filtered-container'>{items}</div>
 }

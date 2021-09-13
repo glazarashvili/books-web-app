@@ -1,16 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 import classes from './CardItem.module.css'
 
 import Button from '../../UI/Button/Button'
 
-const CardItem = ({ title, author, image, price, bookId, category }) => {
-  // const params = useParams()
-
-  // console.log(params, 'params')
-
+const CardItem = ({ title, author, image, price }) => {
   return (
     <div className={classes['card-item']}>
       <div>
