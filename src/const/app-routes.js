@@ -17,36 +17,36 @@ export const appRoutes = [
   {
     path: 'books/fiction',
     component: 'FictionBooks',
-    exact: false,
+    exact: true,
   },
   {
     path: 'books/animals',
     component: 'AnimalsBooks',
-    exact: false,
+    exact: true,
   },
   {
     path: 'books/culture',
     component: 'CultureBooks',
-    exact: false,
+    exact: true,
   },
   {
     path: 'books/religion',
     component: 'ReligionBooks',
-    exact: false,
+    exact: true,
   },
   {
     path: 'books/education',
     component: 'EducationBooks',
-    exact: false,
+    exact: true,
   },
   {
     path: 'books/business',
     component: 'BusinessBooks',
+    exact: true,
+  },
+  {
+    path: `books/animals/:bookId`,
+    component: 'BookDetails',
     exact: false,
   },
-  // {
-  //   path: 'books/:bookId',
-  //   component: 'BookDetails',
-  //   exact: true,
-  // },
 ]
