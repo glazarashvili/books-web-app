@@ -15,38 +15,38 @@ export const appRoutes = [
     exact: false,
   },
   {
-    path: 'fiction',
+    path: 'books/fiction',
     component: 'FictionBooks',
     exact: false,
   },
   {
-    path: 'animals',
+    path: 'books/animals',
     component: 'AnimalsBooks',
     exact: false,
   },
   {
-    path: 'culture',
+    path: 'books/culture',
     component: 'CultureBooks',
     exact: false,
   },
   {
-    path: 'religion',
+    path: 'books/religion',
     component: 'ReligionBooks',
     exact: false,
   },
   {
-    path: 'education',
+    path: 'books/education',
     component: 'EducationBooks',
     exact: false,
   },
   {
-    path: 'business',
+    path: 'books/business',
     component: 'BusinessBooks',
     exact: false,
   },
-  {
-    path: 'books/:bookId',
-    component: 'BookDetails',
-    exact: false,
-  },
+  // {
+  //   path: 'books/:bookId',
+  //   component: 'BookDetails',
+  //   exact: true,
+  // },
 ]

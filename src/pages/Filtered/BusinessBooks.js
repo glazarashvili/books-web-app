@@ -9,8 +9,9 @@ export const BusinessBooks = () => {
   const dispatch = useDispatch()
   const store = useSelector(state => state.books)
 
-  const items = store.books.map(book => (
+  const items = store.books.map((book, index) => (
     <CardItem
+      bookId={index}
       key={book.title}
       price={book.price}
       title={book.title}

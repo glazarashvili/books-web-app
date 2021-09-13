@@ -18,9 +18,9 @@ const CategoriesList = () => {
     return (
       <NavLink
         key={index}
+        to={`/books/${category}`}
         className={classes.link}
-        activeClassName={classes['active-link']}
-        to={`/${category}`}>
+        activeClassName={classes['active-link']}>
         <li>{category}</li>
       </NavLink>
     )

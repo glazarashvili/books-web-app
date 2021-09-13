@@ -1,13 +1,13 @@
 import React from 'react'
 import axios from 'axios'
 
-import { useParams } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 
 export const BookDetails = () => {
   const params = useParams()
   const bookId = params.bookId
 
-  console.log(params.bookId)
+  // console.log(params)
 
   const [bookDetail, setBookDetail] = React.useState([])
 

@@ -11,8 +11,8 @@ export const EducationBooks = () => {
 
   const items = store.books.map((book, index) => (
     <CardItem
-      key={book.title}
       bookId={index}
+      key={book.title}
       title={book.title}
       price={book.price}
       author={book.author}

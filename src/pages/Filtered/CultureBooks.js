@@ -23,13 +23,14 @@ export const CultureBooks = () => {
 
   return (
     <div className='filtered-container'>
-      {books.map(book => (
+      {books.map((book, index) => (
         <CardItem
+          bookId={index}
           key={book.title}
-          image={book.book_image}
           price={book.price}
           title={book.title}
           author={book.author}
+          image={book.book_image}
         />
       ))}
     </div>

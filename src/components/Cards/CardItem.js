@@ -5,9 +5,9 @@ import classes from './CardItem.module.css'
 
 import Button from '../../UI/Button/Button'
 
-const CardItem = ({ title, author, image, price, bookId }) => {
+const CardItem = ({ title, author, image, price, bookId, category }) => {
   return (
-    <Link to={`/books/${bookId}`} className={classes.link}>
+    <Link to={`/books-${category}/${bookId}`} className={classes.link}>
       <div className={classes['card-item']}>
         <div>
           <img
