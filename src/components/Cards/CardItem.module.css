@@ -11,6 +11,10 @@
   height: 330px;
 }
 
+.link {
+  text-decoration: none;
+}
+
 .card-item__content {
   padding: 25px 10px;
   max-height: 50px;

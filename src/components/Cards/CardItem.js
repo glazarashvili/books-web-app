@@ -7,7 +7,7 @@ import Button from '../../UI/Button/Button'
 
 const CardItem = ({ title, author, image, price, bookId }) => {
   return (
-    <Link to={`/books/${bookId}`}>
+    <Link to={`/books/${bookId}`} className={classes.link}>
       <div className={classes['card-item']}>
         <div>
           <img
