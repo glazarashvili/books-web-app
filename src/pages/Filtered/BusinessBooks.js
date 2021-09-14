@@ -4,15 +4,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchBooks } from '../../redux/books/booksActions'
 
 import './Filtered.css'
+import Loading from '../../UI/Loading/Loading'
+import HttpError from '../../UI/Error/HttpError'
+
 import CardItem from '../../components/Cards/CardItem'
 
 export const BusinessBooks = () => {
   const dispatch = useDispatch()
-  const store = useSelector(state => state.books)
+  const products = useSelector(state => state.books)
+  const loading = useSelector(state => state.books.loading)
+  const httpError = useSelector(state => state.books.error)
 
   const location = useLocation().pathname.slice(7)
+  const errorContent = 'Error. No information found! Please try again...'
 
-  const items = store.books.map((elem, index) => (
+  const items = products.books.map((elem, index) => (
     <Link
       key={index}
       to={`/books/${location}/${index}`}
@@ -30,5 +36,11 @@ export const BusinessBooks = () => {
     dispatch(fetchBooks('business-books'))
   }, [dispatch])
 
-  return <div className='filtered-container'>{items}</div>
+  return (
+    <div className='filtered-container'>
+      {loading && <Loading />}
+      {!loading && httpError && <HttpError>{errorContent}</HttpError>}
+      {!loading && !httpError && items}
+    </div>
+  )
 }

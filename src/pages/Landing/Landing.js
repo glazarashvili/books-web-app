@@ -12,9 +12,17 @@ export const Landing = () => {
     <div className={classes['landing-page']}>
       <React.Fragment>
         <Carousel />
-        <Cards type='fiction' path='fiction' category='hardcover-fiction' />
+        <Cards
+          type='fiction'
+          path='hardcover-fiction'
+          category='hardcover-fiction'
+        />
         <Banner image={images[2]} />
-        <Cards type='business' path='business' category='business-books' />
+        <Cards
+          type='business'
+          path='business-books'
+          category='business-books'
+        />
       </React.Fragment>
     </div>
   )

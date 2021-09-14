@@ -37,7 +37,7 @@ const Cards = ({ type, path, category }) => {
     <React.Fragment>
       <Template className={classes['header-menu']}>
         <h1 className={classes.heading}>{type}</h1>
-        <Link to={`/${path}`}>
+        <Link to={`/books/${path}`}>
           <Button className={classes.button}>see more</Button>
         </Link>
       </Template>
