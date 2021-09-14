@@ -1,0 +1,18 @@
+.purchase-books ul {
+  margin-top: 10px;
+}
+
+.purchase-books a {
+  text-decoration: none;
+  color: #264653;
+  border: 1px solid #e9c46a;
+  padding: 5px;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.2s ease-in;
+}
+
+.purchase-books a:hover {
+  background: #e9c46a;
+  border: 1px solid #264653;
+}

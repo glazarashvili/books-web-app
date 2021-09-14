@@ -33,7 +33,7 @@ export const BookDetails = () => {
     }, 1000)
   }, [bookId, adrress])
 
-  console.log(bookDetail)
+  console.log(bookDetail.buy_links)
 
   return (
     <div className={classes['details-page']}>
@@ -47,13 +47,15 @@ export const BookDetails = () => {
               className={classes['left-menu_image']}
             />
           </div>
-          <BookDescription
-            title={bookDetail.title}
-            author={bookDetail.author}
-            publisher={bookDetail.publisher}
-            description={bookDetail.description}
-          />
-          <PurchaseBooks shops={bookDetail.buy_links} />
+          <div className={classes['book-description']}>
+            <BookDescription
+              title={bookDetail.title}
+              author={bookDetail.author}
+              publisher={bookDetail.publisher}
+              description={bookDetail.description}
+            />
+            <PurchaseBooks shops={bookDetail.buy_links} />
+          </div>
         </Template>
       )}
     </div>

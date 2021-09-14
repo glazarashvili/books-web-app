@@ -19,7 +19,6 @@ export const fetchBooksSuccess = books => {
     type: FETCH_BOOKS_SUCCESS,
     payload: {
       books,
-      // ctgr,
     },
   }
 }
@@ -39,7 +38,6 @@ export const fetchBooks = category => {
         `https://api.nytimes.com/svc/books/v3/lists/current/${category}.json?api-key=${key}`
       )
       .then(response => {
-        // const ctgr = response.data.results.list_name_encoded
         const books = response.data.results.books
         dispatch(fetchBooksSuccess(books))
       })

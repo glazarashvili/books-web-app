@@ -8,7 +8,6 @@ const initialState = {
   loading: false,
   books: [],
   error: '',
-  // ctgr: '',
 }
 
 const booksReducer = (state = initialState, action) => {
@@ -23,7 +22,6 @@ const booksReducer = (state = initialState, action) => {
       return {
         ...state,
         books: action.payload.books,
-        // ctgr: action.payload.ctgr,
         loading: false,
       }
 
