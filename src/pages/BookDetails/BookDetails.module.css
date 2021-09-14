@@ -2,13 +2,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 543px);
+  padding: 20px 0px;
 }
 
 .template {
-  justify-content: space-between;
-}
-
-.details-page img {
-  max-width: 500px;
-  max-height: 800px;
+  align-items: flex-start;
 }
