@@ -2,12 +2,13 @@ import {
   FETCH_BOOKS_REQUEST,
   FETCH_BOOKS_SUCCESS,
   FETCH_BOOKS_FAILURE,
-} from './BooksActionTypes'
+} from './booksActionTypes'
 
 const initialState = {
   loading: false,
   books: [],
   error: '',
+  // ctgr: '',
 }
 
 const booksReducer = (state = initialState, action) => {
@@ -21,7 +22,8 @@ const booksReducer = (state = initialState, action) => {
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
-        books: action.payload,
+        books: action.payload.books,
+        // ctgr: action.payload.ctgr,
         loading: false,
       }
 

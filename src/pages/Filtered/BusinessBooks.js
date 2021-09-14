@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchBooks } from '../../redux/Books/BooksActions'
+import { fetchBooks } from '../../redux/books/booksActions'
 
 import './Filtered.css'
 import CardItem from '../../components/Cards/CardItem'
@@ -11,8 +11,6 @@ export const BusinessBooks = () => {
   const store = useSelector(state => state.books)
 
   const location = useLocation().pathname.slice(7)
-
-  console.log(location)
 
   const items = store.books.map((elem, index) => (
     <Link

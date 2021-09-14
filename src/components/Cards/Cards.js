@@ -23,7 +23,7 @@ const Cards = ({ type, path, category }) => {
         `https://api.nytimes.com/svc/books/v3/lists/current/${category}.json?api-key=${key}`
       )
       .then(response => {
-        console.log(response.data.results.books)
+        // console.log(response.data.results.books)
         setBooks(response.data.results.books)
         setLoading(false)
       })

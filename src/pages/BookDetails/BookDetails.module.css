@@ -1,0 +1,14 @@
+.details-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.template {
+  justify-content: space-between;
+}
+
+.details-page img {
+  max-width: 500px;
+  max-height: 800px;
+}
