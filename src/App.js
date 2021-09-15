@@ -17,7 +17,11 @@ const App = () => {
       <Navigation
         mode={mode}
         onDarkModeClick={() => {
-          setMode('dark')
+          if (mode === 'light') {
+            setMode('dark')
+          } else {
+            setMode('light')
+          }
         }}
       />
       {appRoutes.map(route => {
