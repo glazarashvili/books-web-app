@@ -51,7 +51,7 @@
   bottom: 0;
   width: 220px;
   height: 120px;
-  background: #fff;
+  /* background: #fff; */
   display: none;
 }
 
@@ -78,13 +78,13 @@
   font-size: 14px;
   transition: 0.4s ease-in-out;
   margin-top: 5px;
-  background: #fff;
+  /* background: #fff; */
   color: #2e99fb;
   font-weight: bold;
 }
 
 .card-button:hover {
-  background: #2e99fb;
+  /* background: #2e99fb; */
   color: #fff;
 }
 

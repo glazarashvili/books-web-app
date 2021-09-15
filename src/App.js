@@ -8,9 +8,18 @@ import { appRoutes } from './const/app-routes'
 import { Route, Redirect } from 'react-router-dom'
 
 const App = () => {
+  const [mode, setMode] = React.useState('light')
+
+  console.log(mode)
+
   return (
-    <React.Fragment>
-      <Navigation />
+    <div className={mode}>
+      <Navigation
+        mode={mode}
+        onDarkModeClick={() => {
+          setMode('dark')
+        }}
+      />
       {appRoutes.map(route => {
         const Component = views[route.component]
         return (
@@ -26,7 +35,7 @@ const App = () => {
         <Redirect to='landing' />
       </Route>
       <Footer />
-    </React.Fragment>
+    </div>
   )
 }
 

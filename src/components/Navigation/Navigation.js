@@ -4,10 +4,10 @@ import Header from '../Header/Header'
 import SearchMenu from '../SeachMenu/SearchMenu'
 import CategoriesList from '../Categories/CategoriesList'
 
-const Navigation = () => {
+const Navigation = ({ mode, onDarkModeClick }) => {
   return (
     <div className={classes['navigation-menu']}>
-      <Header />
+      <Header mode={mode} onDarkModeClick={onDarkModeClick} />
       <SearchMenu />
       <CategoriesList />
     </div>

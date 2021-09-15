@@ -3,10 +3,10 @@ import axios from 'axios'
 import { useParams, useLocation } from 'react-router-dom'
 
 import classes from './BookDetails.module.css'
+import PurchaseBooks from './PurchaseBooks'
 import Loading from '../../UI/Loading/Loading'
 import BookDescription from './BookDescription'
 import Template from '../../UI/Template/Template'
-import PurchaseBooks from './PurchaseBooks'
 
 const key = 'ti9WowZzdtbgGUQ2pFo6Nd0r0Cj4i9P2'
 

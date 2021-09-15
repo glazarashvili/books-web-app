@@ -4,10 +4,10 @@
   top: 0;
   left: 0;
   padding: 20px 0;
-  background: #f8f8f8;
   display: flex;
   justify-content: center;
   z-index: 10;
+  background-color: white;
 }
 
 .nav-items {
@@ -23,7 +23,7 @@
   font-size: 12px;
   cursor: pointer;
   font-weight: bold;
-  color: #000;
+  /* color: #000; */
 }
 
 .nav-items img {
@@ -34,6 +34,13 @@
 .nav-items li:active {
   color: #2e99fb;
   opacity: 1;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  cursor: pointer;
 }
 
 .button {

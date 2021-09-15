@@ -1,3 +1,41 @@
+.light {
+  background-color: #ffffff;
+  color: #27292d;
+}
+
+.light a,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+section,
+h6,
+p {
+  color: #27292d;
+}
+
+.dark {
+  background-color: #27292d;
+  color: #b4b4b4;
+}
+
+.dark li,
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+section,
+h6,
+p,
+span {
+  color: #dfdfdf;
+}
+
 html,
 body,
 div,
@@ -125,6 +163,12 @@ table {
 
 body {
   font-family: 'Lato', sans-serif;
+  /* --accent-color: orangered; */
+  /* --background-color: white; */
+}
+
+body.dark {
+  /* --accent-color: #333; */
 }
 
 html {
