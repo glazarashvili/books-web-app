@@ -13,6 +13,10 @@ import { Route, Redirect } from 'react-router-dom'
 const App = () => {
   const darkmode = useSelector(store => store.darkmode.toggle)
 
+  React.useEffect(() => {
+    localStorage.setItem('darkModeActivated', darkmode)
+  }, [darkmode])
+
   return (
     <div className={darkmode ? 'dark' : 'light'}>
       <Navigation />

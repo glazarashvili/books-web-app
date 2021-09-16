@@ -1,3 +1,4 @@
+import React from 'react'
 import classes from './Header.module.css'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -12,9 +13,10 @@ const Header = () => {
   const dispatch = useDispatch()
   const darkmode = useSelector(store => store.darkmode.toggle)
 
+  // console.log(darkmode)
+
   const onDarkModeClick = () => {
     dispatch({ type: 'SET_DARK_MODE' })
-    localStorage.setItem('darkModeActivated', !darkmode)
   }
 
   return (
