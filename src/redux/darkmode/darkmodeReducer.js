@@ -1,6 +1,8 @@
 import { SET_DARK_MODE } from './darkmodeActionTypes'
 
-const initialState = { toggle: false }
+const isDarkModeActivated = localStorage.getItem('darkModeActivated')
+
+const initialState = { toggle: isDarkModeActivated }
 
 const darkmodeReducer = (state = initialState, action) => {
   switch (action.type) {
