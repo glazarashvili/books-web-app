@@ -28,7 +28,7 @@
 
 .link {
   text-decoration: none;
-  color: rgb(102, 99, 99);
+  /* color: rgb(102, 99, 99); */
   border-bottom: 1px solid transparent;
   padding: 10px 0px;
 }

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+import { useSelector, useDispatch } from 'react-redux'
+
 import classes from './Header.module.css'
 
 import Button from '../../UI/Button/Button'
@@ -7,9 +9,14 @@ import SunSvg from '../../assets/SVG/SunSvg'
 import MoonSvg from '../../assets/SVG/MoonSvg'
 import Template from '../../UI/Template/Template'
 
-const Header = ({ mode, onDarkModeClick }) => {
+const Header = () => {
+  const dispatch = useDispatch()
+  const darkmode = useSelector(store => store.darkmode.toggle)
+
+  console.log(darkmode, 'darkmode')
+
   return (
-    <header className={mode === 'light' ? classes.header : classes.dark}>
+    <header className={darkmode ? classes.header : classes.dark}>
       <Template>
         <ul className={classes['nav-items']}>
           <Link className={classes.link} to='/'>
@@ -22,11 +29,13 @@ const Header = ({ mode, onDarkModeClick }) => {
           <li>Gift Card</li>
           <li>Orphan's Book club</li>
         </ul>
+        <div
+          onClick={() => dispatch({ type: 'SET_DARK_MODE' })}
+          className={classes['dark-mode']}>
+          {darkmode ? <SunSvg /> : <MoonSvg />}
+          <p>{darkmode ? 'Dark Mode' : 'Light Mode'}</p>
+        </div>
         <div className={classes['login-menu']}>
-          <div onClick={onDarkModeClick} className={classes['dark-mode']}>
-            {mode === 'light' ? <SunSvg /> : <MoonSvg />}
-            <p>{mode === 'light' ? 'Dark Mode' : 'Light Mode'}</p>
-          </div>
           <Link to='/login' className={classes.link}>
             Log In
           </Link>

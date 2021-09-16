@@ -4,26 +4,16 @@ import Footer from './components/Footer/Footer'
 import Navigation from './components/Navigation/Navigation'
 
 import * as views from './pages'
+import { useSelector } from 'react-redux'
 import { appRoutes } from './const/app-routes'
 import { Route, Redirect } from 'react-router-dom'
 
 const App = () => {
-  const [mode, setMode] = React.useState('light')
-
-  console.log(mode)
+  const darkmode = useSelector(store => store.darkmode.toggle)
 
   return (
-    <div className={mode}>
-      <Navigation
-        mode={mode}
-        onDarkModeClick={() => {
-          if (mode === 'light') {
-            setMode('dark')
-          } else {
-            setMode('light')
-          }
-        }}
-      />
+    <div className={darkmode ? 'dark' : 'light'}>
+      <Navigation />
       {appRoutes.map(route => {
         const Component = views[route.component]
         return (
