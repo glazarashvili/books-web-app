@@ -16,7 +16,10 @@ const Header = () => {
   console.log(darkmode, 'darkmode')
 
   return (
-    <header className={!darkmode ? classes.header : classes.dark}>
+    <header
+      className={
+        darkmode ? `${classes.header} ${classes.dark}` : classes.header
+      }>
       <Template>
         <ul className={classes['nav-items']}>
           <Link className={classes.link} to='/'>

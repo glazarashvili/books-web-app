@@ -3,9 +3,16 @@
   display: flex;
   justify-content: center;
   padding: 20px 0;
-  /* border-bottom: 1px solid rgb(241, 235, 235); */
-  /* border-top: 1px solid rgb(241, 235, 235); */
+  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent;
   animation: moveFromLeft 0.5s linear;
+  background: #f8f8f8;
+}
+
+.dark {
+  background: #27292d;
+  border-top: 1px solid rgb(87, 81, 81);
+  border-bottom: 1px solid rgb(87, 81, 81);
 }
 
 .category-menu__items {
@@ -18,6 +25,7 @@
   text-transform: capitalize;
   font-size: 14px;
   cursor: pointer;
+  opacity: 0.8;
   /* color: #000; */
   /* color: inherit; */
 }

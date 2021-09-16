@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux'
+
 import items from './index.js'
 import classes from './Footer.module.css'
 
 import Template from '../../UI/Template/Template'
 
 const Footer = () => {
+  const darkmode = useSelector(store => store.darkmode.toggle)
+
   const footerList = items.map(item => {
     return (
       <li key={item.title}>
@@ -16,7 +20,12 @@ const Footer = () => {
   })
 
   return (
-    <footer className={classes.footer}>
+    <footer
+      className={
+        darkmode
+          ? `${classes.footer} ${classes['footer-dark']}`
+          : classes.footer
+      }>
       <Template>
         <ul className={classes['footer-items']}>
           <li>
