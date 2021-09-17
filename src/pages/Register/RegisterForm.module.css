@@ -1,13 +1,13 @@
 .register-form {
   margin-top: 50px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .register-form label,
 .register-form input {
-  margin-top: 15px;
+  margin: 10px 0 20px 0;
 }
 
 .register-form input {
@@ -18,4 +18,37 @@
 .register-form label {
   font-family: 'Lato', sans-serif;
   text-transform: capitalize;
+}
+
+.checkbox {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.checkbox label {
+  margin-left: 10px;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.checkbox a {
+  color: #2699fb;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.button {
+  background-color: #2e99fb;
+  color: #fff;
+  margin-left: 10px;
+  font-weight: bold;
+  width: 20%;
+  margin: auto;
+}
+
+.button:hover,
+.button:active {
+  background: #cd484d;
 }

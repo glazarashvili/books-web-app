@@ -1,8 +1,7 @@
 .register {
-  padding: 20px;
-  margin-top: 20px;
+  padding: 50px 0 70px;
   text-align: center;
-  min-height: calc(100vh - 503px);
+  min-height: calc(100vh - 583px);
 }
 
 .heading {

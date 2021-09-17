@@ -1,7 +1,8 @@
 import React from 'react'
 
-import classes from './RegisterForm.module.css'
 import Input from '../../UI/Input/Input'
+import Button from '../../UI/Button/Button'
+import classes from './RegisterForm.module.css'
 
 const RegisterForm = () => {
   return (
@@ -10,11 +11,13 @@ const RegisterForm = () => {
       <Input labelShown={true} label='surname' type='text' />
       <Input labelShown={true} label='e-mail' type='e-mail' />
       <Input labelShown={true} label='password' type='password' />
-      <Input
-        labelShown={true}
-        type='checkbox'
-        label='Agree to terms of conditions'
-      />
+      <div className={classes.checkbox}>
+        <input type='checkbox' id='checkbox' />
+        <label htmlFor='checkbox'>
+          Agree to terms of <a href='/'>conditions.</a>
+        </label>
+      </div>
+      <Button className={classes.button}>Create your account</Button>
     </form>
   )
 }
