@@ -1,0 +1,21 @@
+.register-form {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.register-form label,
+.register-form input {
+  margin-top: 15px;
+}
+
+.register-form input {
+  border: 1px solid #ccc;
+  padding: 10px 16px;
+}
+
+.register-form label {
+  font-family: 'Lato', sans-serif;
+  text-transform: capitalize;
+}

@@ -1,7 +1,13 @@
 .register {
-  font-size: 40px;
-  padding: 100px;
+  padding: 20px;
+  margin-top: 20px;
   text-align: center;
-  text-transform: uppercase;
-  min-height: calc(100vh - 643px);
+  min-height: calc(100vh - 503px);
+}
+
+.heading {
+  font-size: 20px;
+  display: inline-block;
+  border-bottom: 1px solid orange;
+  padding-bottom: 5px;
 }
