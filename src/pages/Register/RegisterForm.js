@@ -11,10 +11,16 @@ const RegisterForm = () => {
   const [enteredPassword, setEnteredPassword] = React.useState('')
   const [formIsValid, setFormIsValid] = React.useState(false)
 
+  const regex = /\d/
+  const passwordIsValid = regex.test(enteredPassword)
+
   React.useEffect(() => {
-    console.log(setEnteredName.length)
-    setFormIsValid(enteredName.length > 3 && enteredEmail.includes('@'))
-  }, [enteredName, enteredEmail])
+    setFormIsValid(
+      enteredName.length > 3 &&
+        enteredEmail.includes('@' && 'com') &&
+        passwordIsValid
+    )
+  }, [enteredName, enteredEmail, passwordIsValid])
 
   const nameChangeHandler = e => {
     setEnteredName(e.target.value)
@@ -43,32 +49,32 @@ const RegisterForm = () => {
   return (
     <form onSubmit={submitHandler} className={classes['register-form']}>
       <Input
-        labelShown={true}
-        onInputChange={nameChangeHandler}
-        value={enteredName}
+        type='text'
         label='name'
-        type='text'
+        labelShown={true}
+        value={enteredName}
+        onInputChange={nameChangeHandler}
       />
       <Input
-        labelShown={true}
-        onInputChange={surnameChangeHandler}
+        type='text'
         label='surname'
+        labelShown={true}
         value={enteredSurname}
-        type='text'
+        onInputChange={surnameChangeHandler}
       />
       <Input
-        labelShown={true}
-        onInputChange={emailChangeHandler}
-        label='e-mail'
-        value={enteredEmail}
         type='e-mail'
+        label='e-mail'
+        labelShown={true}
+        value={enteredEmail}
+        onInputChange={emailChangeHandler}
       />
       <Input
-        labelShown={true}
-        onInputChange={passwordChangeHandler}
-        label='password'
-        value={enteredPassword}
         type='password'
+        label='password'
+        labelShown={true}
+        value={enteredPassword}
+        onInputChange={passwordChangeHandler}
       />
       <div className={classes.checkbox}>
         <input type='checkbox' id='checkbox' />

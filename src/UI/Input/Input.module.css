@@ -15,11 +15,6 @@
   min-width: 350px;
 }
 
-.input::placeholder {
-  color: #000;
-  font-size: 12px;
-}
-
 .input:focus {
   border: 0.3px solid #2e99fb;
 }
