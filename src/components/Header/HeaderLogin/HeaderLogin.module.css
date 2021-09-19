@@ -23,11 +23,16 @@
 .button {
   background-color: #2e99fb;
   color: #fff;
-  margin-left: 10px;
   font-weight: bold;
 }
 
 .button:hover,
 .button:active {
   background: #cd484d;
+}
+
+.modal-button {
+  background: transparent;
+  outline: none;
+  border: none;
 }

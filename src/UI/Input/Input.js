@@ -3,10 +3,9 @@ import React from 'react'
 import classes from './Input.module.css'
 
 const Input = ({
-  label,
-  value,
   type,
-  required,
+  value,
+  label,
   labelShown,
   placeholder,
   onInputChange,
@@ -19,7 +18,6 @@ const Input = ({
           id={label}
           type={type}
           value={value}
-          required={required}
           onChange={onInputChange}
           placeholder={placeholder}
           className={classes.input}

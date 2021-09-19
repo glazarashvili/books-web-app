@@ -2,11 +2,11 @@ import React from 'react'
 import classes from './Header.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 
-import HeaderLogin from './HeaderLogin'
 import SunSvg from '../../assets/SVG/SunSvg'
 import MoonSvg from '../../assets/SVG/MoonSvg'
 import Template from '../../UI/Template/Template'
 import HeaderNavigation from './HeaderNavigation'
+import HeaderLogin from './HeaderLogin/HeaderLogin'
 
 const Header = () => {
   const dispatch = useDispatch()
