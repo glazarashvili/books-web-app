@@ -6,6 +6,7 @@ const Input = ({
   type,
   value,
   label,
+  children,
   labelShown,
   placeholder,
   onInputChange,
@@ -22,6 +23,7 @@ const Input = ({
           placeholder={placeholder}
           className={classes.input}
         />
+        {children}
       </div>
     </div>
   )

@@ -25,7 +25,7 @@ const LoginModal = ({ onClose }) => {
         <p>not registered?</p>
         <button onClick={createAccountHandler}>create an account</button>
       </div>
-      <LoginForm />
+      <LoginForm onClose={onClose} />
     </Modal>
   )
 }

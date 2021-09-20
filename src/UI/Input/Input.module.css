@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: flex-start;
   margin: auto;
+  position: relative;
 }
 
 .input {

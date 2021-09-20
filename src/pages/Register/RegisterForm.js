@@ -1,10 +1,12 @@
 import React from 'react'
+import classes from './RegisterForm.module.css'
 
 import Input from '../../UI/Input/Input'
 import Button from '../../UI/Button/Button'
-import classes from './RegisterForm.module.css'
+import PasswordIcon from '../../assets/Icons/PasswordIcon'
 
 const RegisterForm = () => {
+  const [inputType, setInputType] = React.useState('password')
   const [enteredName, setEnteredName] = React.useState('')
   const [enteredEmail, setEnteredEmail] = React.useState('')
   const [enteredSurname, setEnteredSurname] = React.useState('')
@@ -12,7 +14,8 @@ const RegisterForm = () => {
   const [formIsValid, setFormIsValid] = React.useState(false)
 
   const regex = /\d/
-  const passwordIsValid = regex.test(enteredPassword)
+  const passwordIsValid =
+    regex.test(enteredPassword) && enteredPassword.length > 5
 
   React.useEffect(() => {
     setFormIsValid(
@@ -46,6 +49,16 @@ const RegisterForm = () => {
     setEnteredPassword('')
   }
 
+  const ChangeInputType = () => {
+    if (inputType === 'password') {
+      setInputType('text')
+    } else {
+      setInputType('password')
+    }
+  }
+
+  console.log(inputType)
+
   return (
     <form onSubmit={submitHandler} className={classes['register-form']}>
       <Input
@@ -69,11 +82,20 @@ const RegisterForm = () => {
         value={enteredEmail}
         onInputChange={emailChangeHandler}
       />
-      <Input
+      {/* <Input
         type='password'
         label='password'
         labelShown={true}
         value={enteredPassword}
+        children={<PasswordIcon />}
+        onInputChange={passwordChangeHandler}
+      /> */}
+      <Input
+        type={inputType}
+        label='repeat password'
+        labelShown={true}
+        value={enteredPassword}
+        children={<PasswordIcon onPasswordClick={ChangeInputType} />}
         onInputChange={passwordChangeHandler}
       />
       <div className={classes.checkbox}>

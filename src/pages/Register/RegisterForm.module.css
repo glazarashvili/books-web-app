@@ -13,6 +13,11 @@
   font: inherit;
 }
 
+.register-form input[type='password'] {
+  position: relative;
+  display: inline-block;
+}
+
 .register-form input:focus {
   background: #f8f8f8;
   border: 1px solid rgb(115, 151, 115);
