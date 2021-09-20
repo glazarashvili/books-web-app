@@ -1,0 +1,58 @@
+.login-modal {
+  width: 400px;
+  height: 350px;
+  left: calc(50% - 200px);
+  top: calc(50% - 175px);
+}
+
+.login-modal > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.heading {
+  font-size: 16px;
+  text-transform: uppercase;
+  display: inline;
+  padding-bottom: 5px;
+  border-bottom: 1px solid orange;
+}
+
+.close-btn {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.2s linear;
+}
+
+.close-btn:hover {
+  color: #2e99fb;
+}
+
+.not-registered {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 7px;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.not-registered > p {
+  opacity: 0.6;
+  text-transform: capitalize;
+}
+
+.not-registered > button {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 2px;
+  transition: 0.2s linear;
+}
+
+.not-registered > button:hover {
+  color: #2e99fb;
+}
