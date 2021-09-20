@@ -1,7 +1,7 @@
 .login-modal {
   width: 400px;
   height: 350px;
-  left: calc(50% - 200px);
+  left: calc(50% - 220px);
   top: calc(50% - 175px);
 }
 
@@ -17,6 +17,7 @@
   text-transform: uppercase;
   display: inline;
   padding-bottom: 5px;
+  color: #000 !important;
   border-bottom: 1px solid orange;
 }
 
@@ -42,6 +43,7 @@
 .not-registered > p {
   opacity: 0.6;
   text-transform: capitalize;
+  color: #000 !important;
 }
 
 .not-registered > button {
@@ -51,6 +53,7 @@
   font-weight: bold;
   margin-top: 2px;
   transition: 0.2s linear;
+  cursor: pointer;
 }
 
 .not-registered > button:hover {

@@ -5,11 +5,6 @@ export const appRoutes = [
     exact: true,
   },
   {
-    path: 'login',
-    component: 'Login',
-    exact: false,
-  },
-  {
     path: 'register',
     component: 'Register',
     exact: false,

@@ -9,9 +9,9 @@
   color: #000;
 }
 
-.dark li,
-.dark a,
 .dark h1,
+.dark a,
+.dark li,
 .dark h2,
 .dark h3,
 .dark p,
@@ -26,5 +26,5 @@
 .light h3,
 .light p,
 .light span {
-  color: #000;
+  color: #000 !important;
 }

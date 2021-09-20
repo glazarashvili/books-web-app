@@ -1,19 +1,29 @@
 import React from 'react'
-import Modal from '../../../UI/Modal/Modal'
-import LoginForm from './LoginForm'
-
+import { useHistory } from 'react-router-dom'
 import classes from './LoginModal.module.css'
 
-const LoginModal = () => {
+import LoginForm from './LoginForm'
+import Modal from '../../../UI/Modal/Modal'
+
+const LoginModal = ({ onClose }) => {
+  const history = useHistory()
+
+  const createAccountHandler = () => {
+    onClose()
+    history.push('/register')
+  }
+
   return (
     <Modal className={classes['login-modal']}>
       <header>
         <h1 className={classes.heading}>Log In</h1>
-        <button className={classes['close-btn']}>CLOSE</button>
+        <button className={classes['close-btn']} onClick={onClose}>
+          CLOSE
+        </button>
       </header>
       <div className={classes['not-registered']}>
         <p>not registered?</p>
-        <button>create an account</button>
+        <button onClick={createAccountHandler}>create an account</button>
       </div>
       <LoginForm />
     </Modal>
