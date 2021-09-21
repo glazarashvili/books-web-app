@@ -1,10 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
+import classes from './LoginForm.module.css'
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
-import classes from './LoginForm.module.css'
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = ({ onClose, onLoginSubmit }) => {
+  const store = useSelector(state => state.isUserLoggedIn)
+
   const [enteredEmail, setEnteredEmail] = React.useState('')
   const [enteredPassword, setEnteredPassword] = React.useState('')
 
@@ -17,9 +20,9 @@ const LoginForm = ({ onClose }) => {
 
   const submitHandler = e => {
     e.preventDefault()
-    console.log(enteredEmail, enteredPassword)
     setEnteredEmail('')
     setEnteredPassword('')
+    onLoginSubmit(enteredEmail, enteredPassword)
     onClose()
   }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import classes from './LoginModal.module.css'
 
@@ -7,10 +8,17 @@ import Modal from '../../../UI/Modal/Modal'
 
 const LoginModal = ({ onClose }) => {
   const history = useHistory()
+  const dispatch = useDispatch()
 
   const createAccountHandler = () => {
     onClose()
     history.push('/register')
+  }
+
+  const LoginSubmitHandler = (email, password) => {
+    console.log(email, password)
+    localStorage.setItem('isUserLoggedIn', true)
+    dispatch({ type: 'SET_USER' })
   }
 
   return (
@@ -25,7 +33,7 @@ const LoginModal = ({ onClose }) => {
         <p>not registered?</p>
         <button onClick={createAccountHandler}>create an account</button>
       </div>
-      <LoginForm onClose={onClose} />
+      <LoginForm onClose={onClose} onLoginSubmit={LoginSubmitHandler} />
     </Modal>
   )
 }

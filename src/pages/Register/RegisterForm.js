@@ -181,7 +181,7 @@ const RegisterForm = () => {
         disabled={!formIsValid}
         onSubmit={submitHandler}
         className={classes.button}>
-        Create your account
+        create your account
       </Button>
     </form>
   )
