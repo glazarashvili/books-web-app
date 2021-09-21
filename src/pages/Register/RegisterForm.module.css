@@ -18,9 +18,22 @@
   display: inline-block;
 }
 
-.register-form input:focus {
+/* .register-form input:focus {
   background: #f8f8f8;
   border: 1px solid rgb(115, 151, 115);
+  border: 1px solid red;
+} */
+
+.input-default {
+  border: 1px solid rgb(115, 151, 115);
+}
+
+.input-red {
+  border: 1px solid red !important;
+}
+
+.input-green {
+  border: 1px solid rgb(115, 151, 115) !important;
 }
 
 .register-form label {

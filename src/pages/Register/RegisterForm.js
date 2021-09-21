@@ -6,47 +6,72 @@ import Button from '../../UI/Button/Button'
 import PasswordIcon from '../../assets/Icons/PasswordIcon'
 
 const RegisterForm = () => {
-  const [inputType, setInputType] = React.useState('password')
-  const [enteredName, setEnteredName] = React.useState('')
-  const [enteredEmail, setEnteredEmail] = React.useState('')
-  const [enteredSurname, setEnteredSurname] = React.useState('')
-  const [enteredPassword, setEnteredPassword] = React.useState('')
-  const [formIsValid, setFormIsValid] = React.useState(false)
+  const [name, setName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [surname, setSurname] = React.useState('')
+  const [password, setPassword] = React.useState('')
 
-  const regex = /\d/
-  const passwordIsValid =
-    regex.test(enteredPassword) && enteredPassword.length > 5
+  const [nameIsTouched, setNameIsTouched] = React.useState(false)
+  const [emailIsTouched, setEmailIsTouched] = React.useState(false)
+  const [surnameIsTouched, setSurnameIsTouched] = React.useState(false)
+  const [passwordIsTouched, setPasswordIsTouched] = React.useState(false)
+
+  const [formIsValid, setFormIsValid] = React.useState(false)
+  const [inputType, setInputType] = React.useState('password')
+  const [isInputChecked, setIsInputChecked] = React.useState(false)
+
+  const regex = /^(\d+[a-zA-Z]|[a-zA-Z]+\d)(\d|[a-zA-Z])*/gm
+
+  const nameIsValid = name.length > 0
+  const nameIsInvalid = !nameIsValid && nameIsTouched
+
+  const surnameIsValid = surname.length > 0
+  const surnameIsInvalid = !surnameIsValid && surnameIsTouched
+
+  const emailIsValid = email.length > 5 && email.includes('@')
+  const emailIsInvalid = !emailIsValid && emailIsTouched
+
+  const passwordIsValid = regex.test(password) && password.length > 5
+  const passwordIsInvalid = !passwordIsValid && passwordIsTouched
 
   React.useEffect(() => {
     setFormIsValid(
-      enteredName.length > 3 &&
-        enteredEmail.includes('@' && 'com') &&
-        passwordIsValid
+      nameIsValid &&
+        emailIsValid &&
+        surnameIsValid &&
+        passwordIsValid &&
+        isInputChecked
     )
-  }, [enteredName, enteredEmail, passwordIsValid])
+  }, [
+    nameIsValid,
+    emailIsValid,
+    surnameIsValid,
+    passwordIsValid,
+    isInputChecked,
+  ])
 
   const nameChangeHandler = e => {
-    setEnteredName(e.target.value)
+    setName(e.target.value)
   }
 
   const surnameChangeHandler = e => {
-    setEnteredSurname(e.target.value)
+    setSurname(e.target.value)
   }
 
   const emailChangeHandler = e => {
-    setEnteredEmail(e.target.value)
+    setEmail(e.target.value)
   }
 
   const passwordChangeHandler = e => {
-    setEnteredPassword(e.target.value)
+    setPassword(e.target.value)
   }
 
   const submitHandler = e => {
     e.preventDefault()
-    setEnteredName('')
-    setEnteredEmail('')
-    setEnteredSurname('')
-    setEnteredPassword('')
+    setName('')
+    setEmail('')
+    setSurname('')
+    setPassword('')
   }
 
   const ChangeInputType = () => {
@@ -57,49 +82,96 @@ const RegisterForm = () => {
     }
   }
 
-  console.log(inputType)
+  const onNameFocus = () => {
+    setNameIsTouched(true)
+  }
+
+  const onSurnameFocus = () => {
+    setSurnameIsTouched(true)
+  }
+
+  const onEmailFocus = () => {
+    setEmailIsTouched(true)
+  }
+
+  const onPasswordFocus = () => {
+    setPasswordIsTouched(true)
+  }
+
+  const inputContent = (
+    <PasswordIcon inputType={inputType} onPasswordClick={ChangeInputType} />
+  )
 
   return (
     <form onSubmit={submitHandler} className={classes['register-form']}>
       <Input
         type='text'
         label='name'
+        value={name}
         labelShown={true}
-        value={enteredName}
+        onFocus={onNameFocus}
+        className={
+          nameIsInvalid
+            ? classes['input-red']
+            : nameIsValid
+            ? classes['input-green']
+            : ''
+        }
         onInputChange={nameChangeHandler}
       />
       <Input
         type='text'
         label='surname'
+        value={surname}
         labelShown={true}
-        value={enteredSurname}
+        onFocus={onSurnameFocus}
+        className={
+          surnameIsInvalid
+            ? classes['input-red']
+            : surnameIsValid
+            ? classes['input-green']
+            : ''
+        }
         onInputChange={surnameChangeHandler}
       />
       <Input
         type='e-mail'
         label='e-mail'
+        value={email}
         labelShown={true}
-        value={enteredEmail}
+        onFocus={onEmailFocus}
+        className={
+          emailIsInvalid
+            ? classes['input-red']
+            : emailIsValid
+            ? classes['input-green']
+            : ''
+        }
         onInputChange={emailChangeHandler}
       />
-      {/* <Input
-        type='password'
-        label='password'
-        labelShown={true}
-        value={enteredPassword}
-        children={<PasswordIcon />}
-        onInputChange={passwordChangeHandler}
-      /> */}
       <Input
         type={inputType}
-        label='repeat password'
+        label='password'
+        value={password}
         labelShown={true}
-        value={enteredPassword}
-        children={<PasswordIcon onPasswordClick={ChangeInputType} />}
+        onFocus={onPasswordFocus}
+        className={
+          passwordIsInvalid
+            ? classes['input-red']
+            : passwordIsValid
+            ? classes['input-green']
+            : ''
+        }
+        children={inputContent}
         onInputChange={passwordChangeHandler}
       />
       <div className={classes.checkbox}>
-        <input type='checkbox' id='checkbox' />
+        <input
+          id='checkbox'
+          type='checkbox'
+          checked={isInputChecked}
+          onChange={() => setIsInputChecked(!isInputChecked)}
+        />
         <label htmlFor='checkbox'>
           Agree to terms of <a href='/'>conditions.</a>
         </label>

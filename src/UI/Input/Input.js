@@ -6,7 +6,9 @@ const Input = ({
   type,
   value,
   label,
+  onFocus,
   children,
+  className,
   labelShown,
   placeholder,
   onInputChange,
@@ -19,9 +21,10 @@ const Input = ({
           id={label}
           type={type}
           value={value}
+          onFocus={onFocus}
           onChange={onInputChange}
           placeholder={placeholder}
-          className={classes.input}
+          className={`${classes.input} ${className}`}
         />
         {children}
       </div>
