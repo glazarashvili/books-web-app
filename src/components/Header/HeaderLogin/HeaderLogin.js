@@ -9,9 +9,9 @@ import Button from '../../../UI/Button/Button'
 import Backdrop from '../../../UI/Backdrop/Backdrop'
 
 const HeaderLogin = () => {
+  const dispatch = useDispatch()
   const [modalShown, setModalShown] = React.useState(false)
   const IsUserLoggedIn = useSelector(state => state.user.isUserLoggedIn)
-  const dispatch = useDispatch()
 
   const hideModal = () => {
     setModalShown(false)
@@ -26,6 +26,25 @@ const HeaderLogin = () => {
     dispatch({ type: 'SET_USER' })
   }
 
+  const LoginSubmitHandler = (email, password) => {
+    console.log(email, password)
+    localStorage.setItem('isUserLoggedIn', true)
+    dispatch({ type: 'SET_USER' })
+  }
+
+  const modalContent = (
+    <React.Fragment>
+      {ReactDOM.createPortal(
+        <LoginModal onClose={hideModal} onLoginSubmit={LoginSubmitHandler} />,
+        document.getElementById('modal')
+      )}
+      {ReactDOM.createPortal(
+        <Backdrop backdropClick={hideModal} />,
+        document.getElementById('backdrop')
+      )}
+    </React.Fragment>
+  )
+
   return (
     <div className={classes['login-menu']}>
       {IsUserLoggedIn && (
@@ -38,18 +57,7 @@ const HeaderLogin = () => {
           <button className={classes['modal-button']} onClick={showModal}>
             <p className={classes.link}>Log In</p>
           </button>
-          {modalShown && (
-            <React.Fragment>
-              {ReactDOM.createPortal(
-                <LoginModal onClose={hideModal} />,
-                document.getElementById('modal')
-              )}
-              {ReactDOM.createPortal(
-                <Backdrop backdropClick={hideModal} />,
-                document.getElementById('backdrop')
-              )}
-            </React.Fragment>
-          )}
+          {modalShown && <React.Fragment>{modalContent}</React.Fragment>}
           <Link className={classes['btn-link']} to='/register'>
             <Button className={classes.button}>Sign Up</Button>
           </Link>

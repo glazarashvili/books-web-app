@@ -1,13 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import classes from './LoginForm.module.css'
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 
 const LoginForm = ({ onClose, onLoginSubmit }) => {
-  const store = useSelector(state => state.isUserLoggedIn)
-
   const [enteredEmail, setEnteredEmail] = React.useState('')
   const [enteredPassword, setEnteredPassword] = React.useState('')
 
