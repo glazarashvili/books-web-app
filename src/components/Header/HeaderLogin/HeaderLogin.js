@@ -1,6 +1,4 @@
 import React from 'react'
-// import axios from 'axios'
-import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -8,7 +6,6 @@ import classes from './HeaderLogin.module.css'
 
 import LoginModal from './LoginModal'
 import Button from '../../../UI/Button/Button'
-import Backdrop from '../../../UI/Backdrop/Backdrop'
 
 const HeaderLogin = () => {
   const dispatch = useDispatch()
@@ -35,18 +32,18 @@ const HeaderLogin = () => {
     // loginUser({ email: email, password: password })
   }
 
-  const modalContent = (
-    <React.Fragment>
-      {ReactDOM.createPortal(
-        <LoginModal onClose={hideModal} onLoginSubmit={LoginSubmitHandler} />,
-        document.getElementById('modal')
-      )}
-      {ReactDOM.createPortal(
-        <Backdrop backdropClick={hideModal} />,
-        document.getElementById('backdrop')
-      )}
-    </React.Fragment>
-  )
+  // const modalContent = (
+  //   <React.Fragment>
+  //     {ReactDOM.createPortal(
+  //       <LoginModal onClose={hideModal} onLoginSubmit={LoginSubmitHandler} />,
+  //       document.getElementById('modal')
+  //     )}
+  //     {ReactDOM.createPortal(
+  //       <Backdrop backdropClick={hideModal} />,
+  //       document.getElementById('backdrop')
+  //     )}
+  //   </React.Fragment>
+  // )
 
   return (
     <div className={classes['login-menu']}>
@@ -60,7 +57,12 @@ const HeaderLogin = () => {
           <button className={classes['modal-button']} onClick={showModal}>
             <p className={classes.link}>Log In</p>
           </button>
-          {modalShown && <React.Fragment>{modalContent}</React.Fragment>}
+          {modalShown && (
+            <LoginModal
+              onClose={hideModal}
+              onLoginSubmit={LoginSubmitHandler}
+            />
+          )}
           <Link className={classes['btn-link']} to='/register'>
             <Button className={classes.button}>Sign Up</Button>
           </Link>
