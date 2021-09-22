@@ -5,7 +5,7 @@ import Input from '../../UI/Input/Input'
 import Button from '../../UI/Button/Button'
 import PasswordIcon from '../../assets/Icons/PasswordIcon'
 
-const RegisterForm = () => {
+const RegisterForm = ({ onUserRegister, isLoading }) => {
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [surname, setSurname] = React.useState('')
@@ -67,11 +67,14 @@ const RegisterForm = () => {
   }
 
   const submitHandler = e => {
+    const userData = {
+      name,
+      surname,
+      email,
+      password,
+    }
     e.preventDefault()
-    setName('')
-    setEmail('')
-    setSurname('')
-    setPassword('')
+    onUserRegister(userData)
   }
 
   const ChangeInputType = () => {
@@ -181,7 +184,7 @@ const RegisterForm = () => {
         disabled={!formIsValid}
         onSubmit={submitHandler}
         className={classes.button}>
-        create your account
+        {isLoading ? 'loading' : 'create your account'}
       </Button>
     </form>
   )

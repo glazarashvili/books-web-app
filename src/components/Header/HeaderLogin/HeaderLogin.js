@@ -1,7 +1,9 @@
 import React from 'react'
+// import axios from 'axios'
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import ReactDOM from 'react-dom'
+
 import classes from './HeaderLogin.module.css'
 
 import LoginModal from './LoginModal'
@@ -30,6 +32,7 @@ const HeaderLogin = () => {
     console.log(email, password)
     localStorage.setItem('isUserLoggedIn', true)
     dispatch({ type: 'SET_USER' })
+    // loginUser({ email: email, password: password })
   }
 
   const modalContent = (
