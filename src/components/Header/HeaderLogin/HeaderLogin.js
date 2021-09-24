@@ -16,6 +16,7 @@ const HeaderLogin = () => {
   const hideModal = () => {
     if (authFailed) {
       setModalShown(false)
+      setAuthFailed(false)
     }
     return
   }
@@ -27,6 +28,7 @@ const HeaderLogin = () => {
   const onLogoutHandler = () => {
     localStorage.setItem('isUserLoggedIn', false)
     dispatch({ type: 'SET_USER' })
+    setModalShown(false)
   }
 
   const LoginSubmitHandler = async (email, password) => {

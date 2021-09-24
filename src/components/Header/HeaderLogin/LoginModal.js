@@ -16,7 +16,7 @@ const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
   }
 
   return (
-    <React.Fragment>
+    <div className={classes.top}>
       {ReactDOM.createPortal(
         <Modal className={classes['login-modal']}>
           <header>
@@ -30,11 +30,14 @@ const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
             <button onClick={createAccountHandler}>create an account</button>
           </div>
           <LoginForm
+            authFailed={authFailed}
             onModalClose={onModalClose}
             onLoginSubmit={onLoginSubmit}
           />
           {authFailed && (
-            <p style={{ color: 'red' }}>Authorization failed. Try Again</p>
+            <p id={classes['not-authorized']}>
+              Authorization failed. Incorrect password or email.
+            </p>
           )}
         </Modal>,
         document.getElementById('modal-overlay')
@@ -43,7 +46,7 @@ const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
         <Backdrop backdropClick={onModalClose} />,
         document.getElementById('backdrop')
       )}
-    </React.Fragment>
+    </div>
   )
 }
 

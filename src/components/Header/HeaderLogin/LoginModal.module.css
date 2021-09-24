@@ -1,6 +1,6 @@
 .login-modal {
-  width: 400px;
-  height: 350px;
+  /* width: 400px; */
+  /* height: 350px; */
   left: calc(50% - 220px);
   top: calc(50% - 175px);
 }
@@ -58,4 +58,10 @@
 
 .not-registered > button:hover {
   color: #2e99fb;
+}
+
+#not-authorized {
+  margin-top: 10px;
+  color: red;
+  text-align: center;
 }
