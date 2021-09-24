@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import ReactDOM from 'react-dom'
 import classes from './BookDetails.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useLocation } from 'react-router-dom'
@@ -10,21 +9,20 @@ import { apiKey } from '../../const/api-key'
 import Loading from '../../UI/Loading/Loading'
 import BookDescription from './BookDescription'
 import Template from '../../UI/Template/Template'
-import Backdrop from '../../UI/Backdrop/Backdrop'
 import LoginModal from '../../components/Header/HeaderLogin/LoginModal'
 
 export const BookDetails = () => {
   const params = useParams()
   const dispatch = useDispatch()
-  const location = useLocation().pathname
+  const location = useLocation()
 
   const [isLoading, setIsLoading] = React.useState('')
-  const [modalIsShown, setModalIsShown] = React.useState(true)
   const [bookDetail, setBookDetail] = React.useState([])
+  const [modalIsShown, setModalIsShown] = React.useState(true)
 
-  const isUserLoggedIn = useSelector(store => store.user.isUserLoggedIn)
   const bookId = params.bookId
-  const adrress = location.slice(7, location.length - 2)
+  const adrress = location.pathname.slice(7, location.pathname.length - 2)
+  const isUserLoggedIn = useSelector(store => store.user.isUserLoggedIn)
 
   React.useEffect(() => {
     setIsLoading(true)
@@ -50,49 +48,42 @@ export const BookDetails = () => {
     dispatch({ type: 'SET_USER' })
   }
 
+  const bookDetailContent = (
+    <Template className={classes.template}>
+      <div className={classes['left-menu']}>
+        <img
+          alt='book-detail'
+          src={bookDetail.book_image}
+          className={classes['left-menu_image']}
+        />
+      </div>
+      <div className={classes['book-description']}>
+        <BookDescription
+          title={bookDetail.title}
+          author={bookDetail.author}
+          publisher={bookDetail.publisher}
+          description={bookDetail.description}
+        />
+        <PurchaseBooks shops={bookDetail.buy_links} />
+      </div>
+    </Template>
+  )
+
   return (
     <React.Fragment>
       {isUserLoggedIn && (
         <div className={classes['details-page']}>
           {isLoading && <Loading />}
-          {!isLoading && (
-            <Template className={classes.template}>
-              <div className={classes['left-menu']}>
-                <img
-                  alt='book-detail'
-                  src={bookDetail.book_image}
-                  className={classes['left-menu_image']}
-                />
-              </div>
-              <div className={classes['book-description']}>
-                <BookDescription
-                  title={bookDetail.title}
-                  author={bookDetail.author}
-                  publisher={bookDetail.publisher}
-                  description={bookDetail.description}
-                />
-                <PurchaseBooks shops={bookDetail.buy_links} />
-              </div>
-            </Template>
-          )}
+          {!isLoading && bookDetailContent}
         </div>
       )}
       {!isUserLoggedIn && (
         <div className={classes['details-page']}>
           {modalIsShown && (
-            <React.Fragment>
-              {ReactDOM.createPortal(
-                <LoginModal
-                  onClose={hideModal}
-                  onLoginSubmit={LoginSubmitHandler}
-                />,
-                document.getElementById('modal')
-              )}
-              {ReactDOM.createPortal(
-                <Backdrop backdropClick={hideModal} />,
-                document.getElementById('backdrop')
-              )}
-            </React.Fragment>
+            <LoginModal
+              onModalClose={hideModal}
+              onLoginSubmit={LoginSubmitHandler}
+            />
           )}
         </div>
       )}

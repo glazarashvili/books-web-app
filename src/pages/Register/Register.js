@@ -15,7 +15,7 @@ export const Register = () => {
     const data = await axios({
       data: JSON.stringify(user),
       method: 'POST',
-      url: process.env.REACT_APP_REGISTER_URL,
+      url: 'https://books-web-app-c7f23-default-rtdb.firebaseio.com/user.json',
     })
       .then(() => setIsLoading(false))
       .catch(error => console.log(error))

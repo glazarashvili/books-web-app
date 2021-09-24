@@ -1,10 +1,10 @@
 import React from 'react'
-
 import classes from './LoginForm.module.css'
+
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 
-const LoginForm = ({ onClose, onLoginSubmit }) => {
+const LoginForm = ({ onModalClose, onLoginSubmit }) => {
   const [enteredEmail, setEnteredEmail] = React.useState('')
   const [enteredPassword, setEnteredPassword] = React.useState('')
 
@@ -17,10 +17,8 @@ const LoginForm = ({ onClose, onLoginSubmit }) => {
 
   const submitHandler = e => {
     e.preventDefault()
-    setEnteredEmail('')
-    setEnteredPassword('')
     onLoginSubmit(enteredEmail, enteredPassword)
-    onClose()
+    onModalClose()
   }
 
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-
 import classes from './HeaderLogin.module.css'
+import { useSelector, useDispatch } from 'react-redux'
 
 import LoginModal from './LoginModal'
 import Button from '../../../UI/Button/Button'
@@ -10,10 +10,14 @@ import Button from '../../../UI/Button/Button'
 const HeaderLogin = () => {
   const dispatch = useDispatch()
   const [modalShown, setModalShown] = React.useState(false)
-  const IsUserLoggedIn = useSelector(state => state.user.isUserLoggedIn)
+  const [authFailed, setAuthFailed] = React.useState(false)
+  const isUserLoggedIn = useSelector(state => state.user.isUserLoggedIn)
 
   const hideModal = () => {
-    setModalShown(false)
+    if (authFailed) {
+      setModalShown(false)
+    }
+    return
   }
 
   const showModal = () => {
@@ -25,41 +29,40 @@ const HeaderLogin = () => {
     dispatch({ type: 'SET_USER' })
   }
 
-  const LoginSubmitHandler = (email, password) => {
-    console.log(email, password)
-    localStorage.setItem('isUserLoggedIn', true)
-    dispatch({ type: 'SET_USER' })
-    // loginUser({ email: email, password: password })
-  }
+  const LoginSubmitHandler = async (email, password) => {
+    const registeredUsers = await axios
+      .get('https://books-web-app-c7f23-default-rtdb.firebaseio.com/user.json')
+      .then(response => Object.values(response.data))
+      .catch(error => console.log(error))
 
-  // const modalContent = (
-  //   <React.Fragment>
-  //     {ReactDOM.createPortal(
-  //       <LoginModal onClose={hideModal} onLoginSubmit={LoginSubmitHandler} />,
-  //       document.getElementById('modal')
-  //     )}
-  //     {ReactDOM.createPortal(
-  //       <Backdrop backdropClick={hideModal} />,
-  //       document.getElementById('backdrop')
-  //     )}
-  //   </React.Fragment>
-  // )
+    const isValidationPassed = registeredUsers.map(elem => {
+      return elem.email === email && elem.password === password
+    })
+
+    if (isValidationPassed.includes(true)) {
+      localStorage.setItem('isUserLoggedIn', true)
+      dispatch({ type: 'SET_USER' })
+    } else {
+      setAuthFailed(true)
+    }
+  }
 
   return (
     <div className={classes['login-menu']}>
-      {IsUserLoggedIn && (
+      {isUserLoggedIn && (
         <Button onClick={onLogoutHandler} className={classes.button}>
           Log Out
         </Button>
       )}
-      {!IsUserLoggedIn && (
+      {!isUserLoggedIn && (
         <React.Fragment>
           <button className={classes['modal-button']} onClick={showModal}>
             <p className={classes.link}>Log In</p>
           </button>
           {modalShown && (
             <LoginModal
-              onClose={hideModal}
+              authFailed={authFailed}
+              onModalClose={hideModal}
               onLoginSubmit={LoginSubmitHandler}
             />
           )}

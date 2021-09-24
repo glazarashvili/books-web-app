@@ -7,11 +7,11 @@ import LoginForm from './LoginForm'
 import Modal from '../../../UI/Modal/Modal'
 import Backdrop from '../../../UI/Backdrop/Backdrop'
 
-const LoginModal = ({ onClose, onLoginSubmit }) => {
+const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
   const history = useHistory()
 
   const createAccountHandler = () => {
-    onClose()
+    onModalClose()
     history.push('/register')
   }
 
@@ -21,7 +21,7 @@ const LoginModal = ({ onClose, onLoginSubmit }) => {
         <Modal className={classes['login-modal']}>
           <header>
             <h1 className={classes.heading}>Log In</h1>
-            <button className={classes['close-btn']} onClick={onClose}>
+            <button className={classes['close-btn']} onClick={onModalClose}>
               CLOSE
             </button>
           </header>
@@ -29,12 +29,18 @@ const LoginModal = ({ onClose, onLoginSubmit }) => {
             <p>not registered?</p>
             <button onClick={createAccountHandler}>create an account</button>
           </div>
-          <LoginForm onClose={onClose} onLoginSubmit={onLoginSubmit} />
+          <LoginForm
+            onModalClose={onModalClose}
+            onLoginSubmit={onLoginSubmit}
+          />
+          {authFailed && (
+            <p style={{ color: 'red' }}>Authorization failed. Try Again</p>
+          )}
         </Modal>,
         document.getElementById('modal-overlay')
       )}
       {ReactDOM.createPortal(
-        <Backdrop backdropClick={onClose} />,
+        <Backdrop backdropClick={onModalClose} />,
         document.getElementById('backdrop')
       )}
     </React.Fragment>
