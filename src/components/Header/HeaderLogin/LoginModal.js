@@ -7,7 +7,12 @@ import LoginForm from './LoginForm'
 import Modal from '../../../UI/Modal/Modal'
 import Backdrop from '../../../UI/Backdrop/Backdrop'
 
-const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
+const LoginModal = ({
+  authFailed,
+  onModalClose,
+  onLoginSubmit,
+  loginIsLoading,
+}) => {
   const history = useHistory()
 
   const createAccountHandler = () => {
@@ -33,6 +38,7 @@ const LoginModal = ({ onModalClose, onLoginSubmit, authFailed }) => {
             authFailed={authFailed}
             onModalClose={onModalClose}
             onLoginSubmit={onLoginSubmit}
+            loginIsLoading={loginIsLoading}
           />
           {authFailed && (
             <p id={classes['not-authorized']}>

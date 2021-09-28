@@ -48,6 +48,12 @@ export const BookDetails = () => {
     dispatch({ type: 'SET_USER' })
   }
 
+  React.useEffect(() => {
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') hideModal()
+    })
+  }, [])
+
   const bookDetailContent = (
     <Template className={classes.template}>
       <div className={classes['left-menu']}>

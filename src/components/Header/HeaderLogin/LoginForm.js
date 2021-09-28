@@ -4,7 +4,12 @@ import classes from './LoginForm.module.css'
 import Input from '../../../UI/Input/Input'
 import Button from '../../../UI/Button/Button'
 
-const LoginForm = ({ onModalClose, onLoginSubmit, authFailed }) => {
+const LoginForm = ({
+  authFailed,
+  onModalClose,
+  onLoginSubmit,
+  loginIsLoading,
+}) => {
   const [enteredEmail, setEnteredEmail] = React.useState('')
   const [enteredPassword, setEnteredPassword] = React.useState('')
 
@@ -12,13 +17,13 @@ const LoginForm = ({ onModalClose, onLoginSubmit, authFailed }) => {
     setEnteredEmail(e.target.value)
   }
   const passwordChangeHandler = e => {
-    setEnteredPassword(e.target.value)
+    setEnteredPassword('')
   }
 
   const submitHandler = e => {
     e.preventDefault()
     onLoginSubmit(enteredEmail, enteredPassword)
-    if (!authFailed) {
+    if (authFailed) {
       setEnteredEmail('')
       setEnteredPassword('')
     }
@@ -42,7 +47,7 @@ const LoginForm = ({ onModalClose, onLoginSubmit, authFailed }) => {
         onInputChange={passwordChangeHandler}
       />
       <Button type='submit' className={classes.button}>
-        Log In
+        {loginIsLoading ? 'Loading...' : 'Log In'}
       </Button>
     </form>
   )

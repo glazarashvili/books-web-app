@@ -11,6 +11,7 @@ const HeaderLogin = () => {
   const dispatch = useDispatch()
   const [modalShown, setModalShown] = React.useState(false)
   const [authFailed, setAuthFailed] = React.useState(false)
+  const [loginIsLoading, setLoginIsLoading] = React.useState(false)
   const isUserLoggedIn = useSelector(state => state.user.isUserLoggedIn)
 
   const hideModal = () => {
@@ -29,13 +30,17 @@ const HeaderLogin = () => {
     localStorage.setItem('isUserLoggedIn', false)
     dispatch({ type: 'SET_USER' })
     setModalShown(false)
+    setAuthFailed(false)
   }
 
   const LoginSubmitHandler = async (email, password) => {
+    setLoginIsLoading(true)
     const registeredUsers = await axios
       .get('https://books-web-app-c7f23-default-rtdb.firebaseio.com/user.json')
       .then(response => Object.values(response.data))
       .catch(error => console.log(error))
+
+    setLoginIsLoading(false)
 
     const isValidationPassed = registeredUsers.map(elem => {
       return elem.email === email && elem.password === password
@@ -65,6 +70,7 @@ const HeaderLogin = () => {
             <LoginModal
               authFailed={authFailed}
               onModalClose={hideModal}
+              loginIsLoading={loginIsLoading}
               onLoginSubmit={LoginSubmitHandler}
             />
           )}
